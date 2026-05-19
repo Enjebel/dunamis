@@ -1,0 +1,110 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { ArrowRight, CheckCircle2, FileText, MessageCircle, Phone } from 'lucide-react';
+import { contactInfo, heroImages, trainingCycles } from '../data/siteContent';
+
+const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
+
+const ApplyPage = () => {
+  const { i18n } = useTranslation();
+  const lang = getLang(i18n.language);
+  const copy = {
+    en: {
+      eyebrow: 'Admission',
+      title: 'Apply online to Dunamis University',
+      intro: 'Submit your first application details. The admissions team will contact you to confirm your program, documents, interview, and next steps.',
+      stepsTitle: 'Admission process',
+      steps: ['Choose your training cycle', 'Submit your documents', 'Complete the motivation interview', 'Receive your admission decision', 'Confirm registration and prepare orientation'],
+      documents: ['Valid ID or passport', 'Academic transcripts', 'Previous diploma or certificate', 'Passport photo', 'Motivation statement'],
+      formTitle: 'Application request',
+      submit: 'Send application request',
+      call: 'Call admissions',
+      whatsapp: 'Write on WhatsApp',
+    },
+    fr: {
+      eyebrow: 'Admission',
+      title: 'Postuler en ligne a Dunamis University',
+      intro: 'Envoyez vos premieres informations de candidature. L equipe admissions vous contactera pour confirmer programme, pieces, entretien et prochaines etapes.',
+      stepsTitle: 'Processus d admission',
+      steps: ['Choisir votre cycle de formation', 'Soumettre vos pieces', 'Passer l entretien de motivation', 'Recevoir la decision d admission', 'Confirmer l inscription et preparer la rentree'],
+      documents: ['Piece d identite ou passeport', 'Releves de notes', 'Diplome ou attestation precedent', 'Photo passeport', 'Lettre de motivation'],
+      formTitle: 'Demande de candidature',
+      submit: 'Envoyer la demande',
+      call: 'Appeler les admissions',
+      whatsapp: 'Ecrire sur WhatsApp',
+    },
+  }[lang];
+
+  return (
+    <div className="bg-white pt-20 lg:pt-[145px]">
+      <section className="relative overflow-hidden bg-slate-950 text-white">
+        <img src={heroImages.admission} alt="" className="absolute inset-0 h-full w-full object-cover opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+        <div className="du-section relative grid min-h-[52vh] gap-10 py-16 lg:grid-cols-[1fr_360px] lg:items-center">
+          <div className="reveal-up">
+            <p className="du-kicker mb-5">{copy.eyebrow}</p>
+            <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">{copy.title}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">{copy.intro}</p>
+          </div>
+          <div className="reveal-soft bg-white p-7 text-slate-950 shadow-2xl">
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-univOrange">Direct Contact</p>
+            <div className="mt-5 grid gap-3">
+              <a href={contactInfo.phoneHref} className="flex items-center justify-between border border-slate-200 px-4 py-4 font-black hover:border-univGreen hover:text-univGreen">
+                <span className="flex items-center gap-3"><Phone size={18} /> {copy.call}</span>
+                <ArrowRight size={16} />
+              </a>
+              <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="flex items-center justify-between bg-univGreen px-4 py-4 font-black text-white hover:bg-univOrange">
+                <span className="flex items-center gap-3"><MessageCircle size={18} /> {copy.whatsapp}</span>
+                <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="du-section grid gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="space-y-8">
+          <div className="du-panel p-7 reveal-up">
+            <h2 className="text-3xl font-black text-slate-950">{copy.stepsTitle}</h2>
+            <div className="mt-6 space-y-4">
+              {copy.steps.map((step, index) => (
+                <div key={step} className="flex gap-4 border-b border-slate-100 pb-4 last:border-b-0 last:pb-0">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-univOrange text-sm font-black text-white">0{index + 1}</span>
+                  <p className="font-bold text-slate-700">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="du-panel p-7 reveal-up" style={{ animationDelay: '0.08s' }}>
+            <h2 className="mb-5 flex items-center gap-3 text-2xl font-black text-slate-950"><FileText className="text-univGreen" /> Documents</h2>
+            <div className="grid gap-3">
+              {copy.documents.map((doc) => (
+                <p key={doc} className="flex items-center gap-3 font-semibold text-slate-700"><CheckCircle2 className="text-univGreen" size={18} /> {doc}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <form className="du-panel grid gap-5 p-7 reveal-up" style={{ animationDelay: '0.12s' }}>
+          <h2 className="text-3xl font-black text-slate-950">{copy.formTitle}</h2>
+          <div className="grid gap-5 md:grid-cols-2">
+            <input className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder={lang === 'fr' ? 'Nom complet' : 'Full name'} />
+            <input className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder="Email" type="email" />
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <input className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder={lang === 'fr' ? 'Telephone' : 'Phone'} />
+            <select className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen">
+              {trainingCycles.map((cycle) => <option key={cycle.slug}>{cycle[lang].title}</option>)}
+            </select>
+          </div>
+          <textarea className="min-h-36 border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder={lang === 'fr' ? 'Programme souhaite, niveau actuel, questions...' : 'Desired program, current level, questions...'} />
+          <button type="button" className="inline-flex items-center justify-center gap-2 bg-univOrange px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen">
+            {copy.submit} <ArrowRight size={18} />
+          </button>
+        </form>
+      </section>
+    </div>
+  );
+};
+
+export default ApplyPage;

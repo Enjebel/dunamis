@@ -1,0 +1,86 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Build output
+dist/
+build/
+out/
+coverage/
+frontend/dist/
+frontend/build/
+backend/dist/
+backend/build/
+
+# Vite / React caches
+.vite/
+frontend/.vite/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime / temporary files
+tmp/
+temp/
+pids/
+*.pid
+*.seed
+*.pid.lock
+*.swp
+*.swo
+*.tmp
+
+# Uploads and generated user content
+uploads/
+backend/uploads/
+public/uploads/
+
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Test / tooling caches
+.cache/
+.eslintcache
+.parcel-cache/
+.nyc_output/
+
+# Deployment / hosting
+.vercel/
+.netlify/
+
+# Local certificates and keys
+*.pem
+*.key
+*.crt

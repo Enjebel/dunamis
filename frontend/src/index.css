@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #ffffff;
+    color: #0f172a;
+  }
+}
+
+@layer components {
+  .du-section {
+    @apply mx-auto max-w-7xl px-4 lg:px-8;
+  }
+
+  .du-kicker {
+    @apply text-xs font-black uppercase tracking-[0.28em] text-univOrange;
+  }
+
+  .du-panel {
+    @apply border border-slate-200 bg-white shadow-sm;
+  }
+
+  .reveal-up {
+    animation: revealUp 0.75s ease both;
+  }
+
+  .reveal-soft {
+    animation: revealSoft 0.9s ease both;
+  }
+
+  .du-hover-lift {
+    @apply transition duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .du-image-zoom {
+    @apply transition duration-700 ease-out hover:scale-105;
+  }
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealSoft {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slowFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
