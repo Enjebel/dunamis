@@ -12,7 +12,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [desktopMenu, setDesktopMenu] = useState(false);
 
-  const mainItems = navigation.filter((item) => ['training', 'apprenticeship', 'admission', 'university', 'contact'].includes(item.id));
+  const mainItems = navigation.filter((item) => ['university', 'training', 'admission', 'apprenticeship', 'studentLife', 'contact'].includes(item.id));
   const menuColumns = navigation.filter((item) => item.id !== 'home');
 
   return (
@@ -86,7 +86,7 @@ const Navbar = () => {
               <Link to="/admission/apply" className="whitespace-nowrap bg-univOrange px-4 py-4 text-[11px] font-black uppercase tracking-widest text-white hover:bg-univGreen xl:px-5 xl:text-xs">
                 Apply Online
               </Link>
-              <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="whitespace-nowrap bg-slate-950 px-4 py-4 text-[11px] font-black uppercase tracking-widest text-white hover:bg-univGreen xl:px-5 xl:text-xs">
+              <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="hidden whitespace-nowrap bg-slate-950 px-4 py-4 text-[11px] font-black uppercase tracking-widest text-white hover:bg-univGreen xl:inline-flex xl:px-5 xl:text-xs">
                 WhatsApp
               </a>
             </div>

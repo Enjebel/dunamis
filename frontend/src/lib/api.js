@@ -1,4 +1,9 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+const normalizeApiBaseUrl = (value) => {
+  const base = (value || 'http://localhost:5001/api').replace(/\/+$/, '');
+  return /\/api$/i.test(base) ? base : `${base}/api`;
+};
+
+export const API_BASE_URL = normalizeApiBaseUrl(import.meta.env.VITE_API_URL);
 export const API_ORIGIN = API_BASE_URL.replace(/\/api\/?$/, '');
 
 export const apiAssetUrl = (url) => {

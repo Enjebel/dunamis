@@ -46,11 +46,14 @@ const Footer = () => {
 
           {/* Study Paths */}
           <div>
-            <h4 className="text-lg font-bold mb-6 text-univOrange uppercase tracking-widest">Study Paths</h4>
+            <h4 className="text-lg font-bold mb-6 text-univOrange uppercase tracking-widest">Campus & Study</h4>
             <ul className="space-y-4 text-slate-400">
               <li><Link to="/training/faculty/engineering-technology" className="hover:text-white transition-colors">Engineering & Tech</Link></li>
               <li><Link to="/training/faculty/commerce-finance-management" className="hover:text-white transition-colors">Commerce & Finance</Link></li>
               <li><Link to="/training/faculty/health-sciences" className="hover:text-white transition-colors">Health Sciences</Link></li>
+              <li><Link to="/student-life/accommodation" className="hover:text-white transition-colors">Accommodation</Link></li>
+              <li><Link to="/student-life/clubs" className="hover:text-white transition-colors">Associations & Clubs</Link></li>
+              <li><Link to="/student-life/wellness" className="hover:text-white transition-colors">Health & Wellness</Link></li>
               <li><Link to="/international" className="hover:text-white transition-colors">Study Abroad</Link></li>
             </ul>
           </div>
