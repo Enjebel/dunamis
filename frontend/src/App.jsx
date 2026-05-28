@@ -46,7 +46,7 @@ const studentLifeFocus = {
 
 function App() {
   const location = useLocation();
-  const isPortal = ['/admin', '/student', '/library', '/login'].some((path) => location.pathname.startsWith(path));
+  const isPortal = ['/admin', '/student', '/library', '/login'].some((path) => location.pathname === path || location.pathname.startsWith(`${path}/`));
 
   return (
     <Suspense
