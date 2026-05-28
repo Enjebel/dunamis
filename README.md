@@ -1,5 +1,44 @@
 # Dunamis University Website
 
+## University System Direction
+
+The public website is being maintained as the front office while the project grows into a dynamic university management system.
+
+Current portal foundation:
+
+- `/admin` - administration dashboard for academic operations, lecture-hour tracking, transcript tools, and system stats.
+- `/admin/news` - news, daily activities, event, and blog publishing workspace.
+- `/student` - student dashboard with semester results, credits passed, and failed/resit courses.
+- `/library` - online school library for uploaded books, PDFs, and borrowable resources.
+
+Backend API foundation:
+
+- `GET /api/system/overview`
+- `GET /api/program-sources`
+- `GET /api/programs`
+- `POST /api/programs`
+- `GET /api/students`
+- `POST /api/students`
+- `GET /api/students/:matricule/dashboard`
+- `GET /api/students/:matricule/transcript`
+- `GET /api/lecture-hours`
+- `POST /api/lecture-hours`
+- `GET /api/news-posts`
+- `POST /api/news-posts`
+- `GET /api/library`
+- `POST /api/library`
+
+The `programs/` folder is treated as the official source library for BTS, HND, and transcript reference documents. The next major step is extracting course tables from the PDF/DOC/DOCX files into structured `Program.courses[]` records with course code, title, credit, semester, year, category, and ministry source.
+
+Planned next phases:
+
+- Auth and roles: super admin, academic admin, lecturer, librarian, student. Backend routes are in place at `/api/auth/*`; create the first admin with `POST /api/auth/bootstrap-admin`.
+- Course import workflow from the `programs/` folder. Use `/api/program-sources`, `/api/program-sources/extract`, and `/api/programs/import-from-source`.
+- Transcript print templates by program/cycle with one common Dunamis design. Transcript data is available at `/api/students/:matricule/transcript`.
+- Result import, validation, semester/year GPA, failed course and resit tracking. Result import is available at `POST /api/students/:matricule/results`.
+- Lecture-hour validation by academic administration. Use `/api/lecture-hours` and `PATCH /api/lecture-hours/:id/validate`.
+- Library upload/borrow/read-online workflow. Use `/api/library`, `POST /api/library` with a file upload, and `/api/library/:id/borrow`.
+
 ## Project Description
 
 This repository contains the codebase for the official Dunamis University website. The project is designed to be a professional, dynamic, and user-friendly platform that showcases the university's mission, academic offerings, campus life, and institutional values. It aims to empower prospective students, faculty, and the wider community with essential information about Dunamis University.

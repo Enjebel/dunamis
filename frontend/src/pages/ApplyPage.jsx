@@ -88,16 +88,17 @@ const ApplyPage = () => {
         <form className="du-panel grid gap-5 p-7 reveal-up" style={{ animationDelay: '0.12s' }}>
           <h2 className="text-3xl font-black text-slate-950">{copy.formTitle}</h2>
           <div className="grid gap-5 md:grid-cols-2">
-            <input className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder={lang === 'fr' ? 'Nom complet' : 'Full name'} />
-            <input className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder="Email" type="email" />
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Nom complet du candidat' : 'Applicant full name'}</span><input className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre nom complet' : 'Enter your full name'} /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Adresse email du candidat' : 'Applicant email address'}</span><input className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre adresse email' : 'Enter your email address'} type="email" /></label>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <input className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder={lang === 'fr' ? 'Telephone' : 'Phone'} />
-            <select className="border border-slate-200 px-4 py-4 outline-none focus:border-univGreen">
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Numero telephone ou WhatsApp' : 'Phone or WhatsApp number'}</span><input className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre numero de telephone' : 'Enter your phone number'} /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Cycle de formation souhaite' : 'Desired training cycle'}</span><select className="du-input py-4" defaultValue="">
+              <option value="" disabled>{lang === 'fr' ? 'Choisir un cycle' : 'Choose a cycle'}</option>
               {trainingCycles.map((cycle) => <option key={cycle.slug}>{cycle[lang].title}</option>)}
-            </select>
+            </select></label>
           </div>
-          <textarea className="min-h-36 border border-slate-200 px-4 py-4 outline-none focus:border-univGreen" placeholder={lang === 'fr' ? 'Programme souhaite, niveau actuel, questions...' : 'Desired program, current level, questions...'} />
+          <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Programme, niveau actuel et questions' : 'Program, current level, and questions'}</span><textarea className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Decrivez le programme souhaite, votre niveau actuel et vos questions' : 'Describe your desired program, current level, and questions'} /></label>
           <button type="button" className="inline-flex items-center justify-center gap-2 bg-univOrange px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen">
             {copy.submit} <ArrowRight size={18} />
           </button>

@@ -40,7 +40,7 @@ export const contactInfo = {
   phoneHref: 'tel:+237658682533',
   whatsapp: '+237 6 58 68 25 33',
   whatsappHref: 'https://wa.me/237658682533',
-  email: 'info@dunamis-university.com',
+  email: 'dunamisresta@gmail.com',
 };
 
 export const officialPartners = [
@@ -464,7 +464,17 @@ export const navigation = [
   },
   { id: 'apprenticeship', path: '/apprenticeship' },
   { id: 'international', path: '/international' },
-  { id: 'studentLife', path: '/student-life' },
+  {
+    id: 'studentLife',
+    path: '/student-life',
+    children: [
+      ['Accommodation', 'Logement', '/student-life/accommodation'],
+      ['Associations & Clubs', 'Associations & Clubs', '/student-life/clubs'],
+      ['Sports', 'Sports', '/student-life/sports'],
+      ['Health & Wellness', 'Sante & Bien-etre', '/student-life/wellness'],
+      ['Entrepreneurship & Incubator', 'Entrepreneuriat & Incubateur', '/student-life/incubator'],
+    ],
+  },
   { id: 'research', path: '/research' },
   { id: 'businesses', path: '/businesses' },
   { id: 'news', path: '/news' },

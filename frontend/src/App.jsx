@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -8,6 +8,16 @@ import FacultyDetail from './pages/FacultyDetail';
 import RectorMessage from './pages/RectorMessage';
 import SectionPage from './pages/SectionPage';
 import ApplyPage from './pages/ApplyPage';
+import AdminPortal from './pages/AdminPortal';
+import StudentPortal from './pages/StudentPortal';
+import LibraryPortal from './pages/LibraryPortal';
+import NewsAdminPortal from './pages/NewsAdminPortal';
+import AuthPortal from './pages/AuthPortal';
+import RequireAuth from './components/RequireAuth';
+import AcademicToolsPortal from './pages/AcademicToolsPortal';
+import LectureValidationPortal from './pages/LectureValidationPortal';
+import TimetableAdminPortal from './pages/TimetableAdminPortal';
+import PublicNews from './pages/PublicNews';
 
 const universityFocus = {
   'mission-vision': 1,
@@ -26,7 +36,18 @@ const admissionFocus = {
   calendar: 4,
 };
 
+const studentLifeFocus = {
+  accommodation: 0,
+  clubs: 1,
+  sports: 2,
+  wellness: 3,
+  incubator: 4,
+};
+
 function App() {
+  const location = useLocation();
+  const isPortal = ['/admin', '/student', '/library', '/login'].some((path) => location.pathname.startsWith(path));
+
   return (
     <Suspense
       fallback={
@@ -36,7 +57,7 @@ function App() {
       }
     >
       <div className="flex min-h-screen flex-col bg-white font-sans text-slate-900 antialiased selection:bg-univOrange selection:text-white">
-        <Navbar />
+        {!isPortal && <Navbar />}
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -56,14 +77,30 @@ function App() {
             <Route path="/apprenticeship" element={<SectionPage pageKey="apprenticeship" />} />
             <Route path="/international" element={<SectionPage pageKey="international" />} />
             <Route path="/student-life" element={<SectionPage pageKey="studentLife" />} />
+            {Object.entries(studentLifeFocus).map(([slug, index]) => (
+              <Route key={slug} path={`/student-life/${slug}`} element={<SectionPage pageKey="studentLife" focusIndex={index} />} />
+            ))}
             <Route path="/research" element={<SectionPage pageKey="research" />} />
             <Route path="/businesses" element={<SectionPage pageKey="businesses" />} />
-            <Route path="/news" element={<SectionPage pageKey="news" />} />
+            <Route path="/news" element={<PublicNews />} />
             <Route path="/contact" element={<SectionPage pageKey="contact" />} />
+            <Route path="/admin" element={<RequireAuth roles={['super_admin', 'academic_admin']}><AdminPortal /></RequireAuth>} />
+            <Route path="/admin/academic-tools" element={<RequireAuth roles={['super_admin', 'academic_admin']}><AcademicToolsPortal /></RequireAuth>} />
+            <Route path="/admin/lecture-hours" element={<RequireAuth roles={['super_admin', 'academic_admin']}><LectureValidationPortal /></RequireAuth>} />
+            <Route path="/admin/timetable" element={<RequireAuth roles={['super_admin', 'academic_admin']}><TimetableAdminPortal /></RequireAuth>} />
+            <Route path="/admin/news" element={<RequireAuth roles={['super_admin', 'academic_admin']}><NewsAdminPortal /></RequireAuth>} />
+            <Route path="/student" element={<RequireAuth roles={['student']}><StudentPortal /></RequireAuth>} />
+            <Route path="/student/results" element={<RequireAuth roles={['student']}><StudentPortal /></RequireAuth>} />
+            <Route path="/student/resits" element={<RequireAuth roles={['student']}><StudentPortal /></RequireAuth>} />
+            <Route path="/student/profile" element={<RequireAuth roles={['student']}><StudentPortal /></RequireAuth>} />
+            <Route path="/student/mock-results" element={<RequireAuth roles={['student']}><StudentPortal /></RequireAuth>} />
+            <Route path="/library" element={<RequireAuth roles={['student', 'librarian', 'super_admin', 'academic_admin']}><LibraryPortal /></RequireAuth>} />
+            <Route path="/login" element={<AuthPortal />} />
+            <Route path="/login/:accessType" element={<AuthPortal />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
-        <Footer />
+        {!isPortal && <Footer />}
       </div>
     </Suspense>
   );

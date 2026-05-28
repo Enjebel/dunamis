@@ -55,9 +55,9 @@ const Contact = () => {
         <div className="bg-slate-900 p-12 rounded-[40px] shadow-2xl text-white">
           <h2 className="text-3xl font-black mb-8 uppercase tracking-tighter text-univOrange">Send a Message</h2>
           <form className="space-y-6">
-            <input type="text" placeholder="Your Name" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500" />
-            <input type="email" placeholder="Your Email" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500" />
-            <textarea placeholder="How can we help?" rows="4" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500"></textarea>
+            <label className="du-field"><span className="du-label text-slate-300">Visitor name</span><input type="text" placeholder="Enter your full name" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500" /></label>
+            <label className="du-field"><span className="du-label text-slate-300">Visitor email address</span><input type="email" placeholder="Enter your email address" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500" /></label>
+            <label className="du-field"><span className="du-label text-slate-300">Message or inquiry details</span><textarea placeholder="Tell us how we can help" rows="4" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500"></textarea></label>
             <button className="w-full bg-univGreen text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-univOrange transition-colors">Send Inquiry</button>
           </form>
         </div>

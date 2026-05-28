@@ -50,6 +50,9 @@ uploads/
 backend/uploads/
 public/uploads/
 
+# Ignore heavy academic program documents
+programs/
+
 # Package manager caches
 .npm/
 .pnpm-store/

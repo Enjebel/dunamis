@@ -1,0 +1,62 @@
+import React, { useEffect, useState } from 'react';
+import { CalendarDays, Newspaper } from 'lucide-react';
+import { apiAssetUrl, apiRequest } from '../lib/api';
+import { heroImages } from '../data/siteContent';
+
+const PublicNews = () => {
+  const [posts, setPosts] = useState([]);
+  const [status, setStatus] = useState('');
+
+  useEffect(() => {
+    apiRequest('/news-posts')
+      .then(setPosts)
+      .catch((error) => setStatus(error.message));
+  }, []);
+
+  return (
+    <div className="bg-white pt-20 lg:pt-[145px]">
+      <section className="relative min-h-[46vh] overflow-hidden bg-slate-950 text-white">
+        <img src={heroImages.news} alt="" className="absolute inset-0 h-full w-full object-cover opacity-55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+        <div className="du-section relative flex min-h-[46vh] flex-col justify-center py-16">
+          <p className="du-kicker mb-5">News</p>
+          <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">News, Activities, Events & Blog</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">Published updates from Dunamis administration appear here automatically.</p>
+        </div>
+      </section>
+
+      <section className="du-section py-16">
+        {status && <div className="mb-6 bg-orange-50 p-4 text-sm font-bold text-orange-700">{status}</div>}
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {posts.map((post) => (
+            <article key={post._id} className="du-panel overflow-hidden">
+              {post.mediaUrl && post.mediaType === 'video' && (
+                <video src={apiAssetUrl(post.mediaUrl)} controls className="aspect-video w-full bg-black object-cover" />
+              )}
+              {post.mediaUrl && post.mediaType === 'image' && (
+                <img src={apiAssetUrl(post.mediaUrl)} alt="" className="aspect-video w-full object-cover" />
+              )}
+              {!post.mediaUrl && (
+                <div className="flex aspect-video items-center justify-center bg-univGray text-univGreen">
+                  <Newspaper size={42} />
+                </div>
+              )}
+              <div className="p-5">
+                <div className="mb-3 flex flex-wrap items-center gap-3 text-xs font-black uppercase tracking-widest text-slate-500">
+                  <span className="text-univOrange">{post.category}</span>
+                  <span className="flex items-center gap-1"><CalendarDays size={14} /> {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : 'Published'}</span>
+                </div>
+                <h2 className="text-xl font-black text-slate-950">{post.title}</h2>
+                {post.excerpt && <p className="mt-3 text-sm font-semibold leading-relaxed text-slate-600">{post.excerpt}</p>}
+                <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-slate-700">{post.body}</p>
+              </div>
+            </article>
+          ))}
+          {!posts.length && !status && <p className="text-sm font-semibold text-slate-500">No published posts yet.</p>}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default PublicNews;

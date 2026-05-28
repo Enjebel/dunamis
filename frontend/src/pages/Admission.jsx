@@ -17,7 +17,7 @@ const Admission = () => {
     setStatus('Sending...');
     try {
       // Update URL if your backend is on a different port/host
-      const response = await axios.post('http://localhost:5000/api/apply', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5001/api'}/apply`, formData);
       setStatus(response.data.message);
       setFormData({ name: '', email: '', phone: '', program: '', message: '' });
     } catch (error) {
@@ -39,18 +39,18 @@ const Admission = () => {
           <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-2xl">
             <h2 className="text-3xl font-black text-slate-800 mb-8 uppercase tracking-tight">Apply <span className="text-univGreen">Online</span></h2>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <input type="text" placeholder="Full Name" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+              <label className="du-field"><span className="du-label">Applicant full name</span><input type="text" placeholder="Enter your full name" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} /></label>
               <div className="grid md:grid-cols-2 gap-6">
-                <input type="email" placeholder="Email Address" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
-                <input type="tel" placeholder="Phone Number" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" required value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+                <label className="du-field"><span className="du-label">Applicant email address</span><input type="email" placeholder="Enter your email address" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} /></label>
+                <label className="du-field"><span className="du-label">Phone or WhatsApp number</span><input type="tel" placeholder="Enter your phone number" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" required value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} /></label>
               </div>
-              <select className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all text-slate-500" required value={formData.program} onChange={e => setFormData({...formData, program: e.target.value})}>
-                <option value="">Select Desired Program</option>
+              <label className="du-field"><span className="du-label">Desired faculty or program area</span><select className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all text-slate-500" required value={formData.program} onChange={e => setFormData({...formData, program: e.target.value})}>
+                <option value="" disabled>Select desired program</option>
                 <option value="engineering">Engineering & Technology</option>
                 <option value="commerce">Commerce & Management</option>
                 <option value="health">Health Sciences</option>
-              </select>
-              <textarea rows="4" placeholder="Motivation / Questions" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea>
+              </select></label>
+              <label className="du-field"><span className="du-label">Motivation, background, or questions</span><textarea rows="4" placeholder="Tell us your motivation, current level, and any questions" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-univGreen outline-none transition-all" value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}></textarea></label>
               <button type="submit" className="w-full py-5 bg-univOrange text-white font-black rounded-2xl hover:bg-univGreen transition-all uppercase tracking-widest shadow-lg">Submit Application</button>
               {status && <p className="text-center font-bold text-univGreen mt-4">{status}</p>}
             </form>

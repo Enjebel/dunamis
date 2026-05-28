@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Award, Building2, GraduationCap, HeartPulse } from 'lucide-react';
 import PartnerBar from '../components/PartnerBar';
 import { faculties, heroImages, professionalCertifications, trainingCycles } from '../data/siteContent';
+import { apiRequest } from '../lib/api';
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 const icons = [Building2, GraduationCap, HeartPulse];
@@ -11,8 +12,15 @@ const icons = [Building2, GraduationCap, HeartPulse];
 const Training = () => {
   const { i18n } = useTranslation();
   const { cycle } = useParams();
+  const [dbPrograms, setDbPrograms] = useState([]);
   const lang = getLang(i18n.language);
   const selectedCycle = trainingCycles.find((item) => item.slug === cycle);
+
+  useEffect(() => {
+    apiRequest('/programs')
+      .then(setDbPrograms)
+      .catch(() => setDbPrograms([]));
+  }, []);
 
   const copy = {
     en: {
@@ -113,6 +121,30 @@ const Training = () => {
           </div>
         </div>
       </section>
+
+      {dbPrograms.length > 0 && (
+        <section className="bg-univGray py-16">
+          <div className="du-section">
+            <div className="mb-8 max-w-3xl">
+              <p className="du-kicker">Academic Database</p>
+              <h2 className="mt-3 text-3xl font-black text-slate-950">Imported ministry course catalogues</h2>
+              <p className="mt-4 text-slate-600">
+                These program records are loaded from MongoDB and connected to the official files in the `programs/` folder.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {dbPrograms.slice(0, 9).map((program) => (
+                <article key={program.code} className="du-panel p-6">
+                  <p className="text-xs font-black uppercase tracking-widest text-univOrange">{program.cycle} · {program.code}</p>
+                  <h3 className="mt-3 text-xl font-black text-slate-950">{program.name}</h3>
+                  <p className="mt-2 text-sm text-slate-500">{program.faculty}</p>
+                  <p className="mt-5 text-sm font-black text-univGreen">{program.courses?.length || 0} course records</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <PartnerBar />
     </div>

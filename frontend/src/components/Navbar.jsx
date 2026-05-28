@@ -104,6 +104,14 @@ const Navbar = () => {
                 <Link to="/admission/apply" onClick={() => setDesktopMenu(false)} className="bg-univOrange px-4 py-3 text-xs font-black uppercase tracking-widest">Apply</Link>
                 <Link to="/contact" onClick={() => setDesktopMenu(false)} className="border border-white/30 px-4 py-3 text-xs font-black uppercase tracking-widest">Contact</Link>
               </div>
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-slate-400">Portals</p>
+                <div className="grid gap-2">
+                  <Link to="/login/staff" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">Administration Portal</Link>
+                  <Link to="/login/student" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">Student Portal</Link>
+                  <Link to="/library" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">Online Library</Link>
+                </div>
+              </div>
             </div>
             {menuColumns.slice(0, 9).map((item) => (
               <div key={item.id}>
@@ -147,6 +155,12 @@ const Navbar = () => {
           <div className="mb-5 flex items-center justify-between border-y border-slate-200 py-3">
             <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500"><FileText size={14} /> Infos</span>
             <LanguageSwitcher />
+          </div>
+          <div className="mb-5 grid gap-2 bg-univGray p-4">
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-slate-500">Portals</p>
+            <Link to="/login/staff" onClick={() => setOpen(false)} className="font-black text-slate-900">Administration Portal</Link>
+            <Link to="/login/student" onClick={() => setOpen(false)} className="font-black text-slate-900">Student Portal</Link>
+            <Link to="/library" onClick={() => setOpen(false)} className="font-black text-slate-900">Online Library</Link>
           </div>
           <nav className="space-y-2">
             {navigation.map((item) => (

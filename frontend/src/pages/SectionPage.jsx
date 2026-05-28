@@ -127,9 +127,9 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
             ))}
           </div>
           <form className="grid gap-4 bg-slate-950 p-6 text-white md:p-8">
-            <input className="rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Votre nom' : 'Your name'} />
-            <input className="rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder="Email" type="email" />
-            <textarea className="min-h-36 rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Votre message' : 'Your message'} />
+            <label className="du-field"><span className="du-label text-slate-300">{lang === 'fr' ? 'Nom du visiteur' : 'Visitor name'}</span><input className="rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Entrez votre nom' : 'Enter your name'} /></label>
+            <label className="du-field"><span className="du-label text-slate-300">{lang === 'fr' ? 'Adresse email' : 'Email address'}</span><input className="rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Entrez votre email' : 'Enter your email'} type="email" /></label>
+            <label className="du-field"><span className="du-label text-slate-300">{lang === 'fr' ? 'Message a envoyer' : 'Message to send'}</span><textarea className="min-h-36 rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Ecrivez votre message' : 'Write your message'} /></label>
             <button className="rounded bg-univOrange px-5 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen" type="button">
               {lang === 'fr' ? 'Envoyer' : 'Send message'}
             </button>
