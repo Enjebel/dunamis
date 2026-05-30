@@ -57,12 +57,30 @@ export const faculties = [
     en: {
       title: 'Faculty of Engineering & Technology',
       summary: 'Applied engineering, digital systems, infrastructure, and secure technology for modern industry.',
-      programs: ['Software Engineering', 'Networks & Cybersecurity', 'Civil Engineering', 'Industrial Maintenance', 'Data & AI Foundations'],
+      programs: [
+        { title: 'Civil Engineering', courses: ['Building Science and Technology', 'Road and Civil Engineering', 'Topography'] },
+        { title: 'Chemical Engineering', courses: ['Chemical Manufacturing', 'Chemical Process Technology'] },
+        { title: 'Computer Engineering', courses: ['Software Engineering', 'Hardware Maintenance', 'E-Commerce and Digital Marketing', 'Computer Graphics and Web Design', 'Industrial Computing and Automation'] },
+        { title: 'Electrical Engineering', courses: ['Electrotechnics', 'Maintenance of Biomedical Equipment'] },
+        { title: 'Mechanical Engineering', courses: ['Mechanical Manufacturing', 'Automotive Maintenance and Services'] },
+        { title: 'Thermal Engineering', courses: ['Air Conditioning and Refrigeration', 'Sustainable and Renewable Energy'] },
+        { title: 'Agriculture and Food Science', courses: ['Animal Production Technology', 'Crop Production Technology', 'Food Processing'] },
+        { title: 'Home Economics', courses: ['Fashion Designing', 'Clothing and Textiles'] },
+      ],
     },
     fr: {
       title: "Faculte d'Ingenierie & Technologie",
       summary: 'Ingenierie appliquee, systemes numeriques, infrastructures et technologies securisees pour l industrie.',
-      programs: ['Genie logiciel', 'Reseaux & cybersecurite', 'Genie civil', 'Maintenance industrielle', 'Data & IA fondamentaux'],
+      programs: [
+        { title: 'Genie civil', courses: ['Batiment', 'Travaux publics', 'Geometre topographe', 'Installation sanitaire'] },
+        { title: 'Genie chimique et des procedes', courses: ['Chimie industrielle', 'Pilotage des procedes'] },
+        { title: 'Genie informatique', courses: ['Genie logiciel', 'Maintenance des systemes informatiques', 'E-commerce et marketing digital', 'Infographie et web design', 'Informatique industrielle et automatisme'] },
+        { title: 'Genie electrique', courses: ['Electrotechnique', 'Maintenance des appareils biomedicaux'] },
+        { title: 'Genie mecanique', courses: ['Mecanique', 'Maintenance industrielle et productique'] },
+        { title: 'Genie thermique', courses: ['Froid et climatisation', 'Energie renouvelable'] },
+        { title: 'Agriculture et elevage', courses: ['Production animale', 'Production vegetale', 'Aquaculture technique', 'Commerce agricole'] },
+        { title: 'Art et metiers de la culture', courses: ['Design de mode', 'Industrie de l habillement'] },
+      ],
     },
   },
   {
@@ -70,12 +88,26 @@ export const faculties = [
     en: {
       title: 'Faculty of Commerce, Finance & Management',
       summary: 'Business, accounting, finance, marketing, logistics, and entrepreneurial management.',
-      programs: ['Business Management', 'Accounting & Finance', 'Marketing & Communication', 'Banking & Insurance', 'Logistics & Supply Chain'],
+      programs: [
+        { title: 'Business and Finance', courses: ['Accountancy', 'Marketing', 'Banking and Finance', 'Insurance'] },
+        { title: 'Management', courses: ['Assistant Manager', 'Project Management', 'Human Resource Management'] },
+        { title: 'Home Economics, Tourism and Hotel Management', courses: ['Logistics and Transport Management', 'Port Shipping Management', 'Tourism and Travel Agency Management', 'Hotel Management and Catering'] },
+        { title: 'Legal Careers', courses: ['Legal Assistant', 'Business Law', 'Customs and Transit', 'Tax Management'] },
+        { title: 'Education and Professional Development', courses: ['Didactics, Curriculum Development and Teaching', 'Education Management and Administration', 'Special Education'] },
+        { title: 'Communication', courses: ['Journalism'] },
+      ],
     },
     fr: {
       title: 'Faculte de Commerce, Finance & Management',
       summary: 'Commerce, comptabilite, finance, marketing, logistique et management entrepreneurial.',
-      programs: ['Gestion des entreprises', 'Comptabilite & finance', 'Marketing & communication', 'Banque & assurance', 'Logistique & supply chain'],
+      programs: [
+        { title: 'Commerce et finance', courses: ['Comptabilite', 'Marketing', 'Banque et finance', 'Assurance'] },
+        { title: 'Gestion', courses: ['Assistant manager', 'Gestion de projet', 'Gestion des ressources humaines'] },
+        { title: 'Economie domestique, tourisme et gestion hoteliere', courses: ['Gestion de la logistique et du transport', 'Gestion portuaire et maritime', 'Gestion du tourisme et des agences de voyage', 'Gestion hoteliere et restauration'] },
+        { title: 'Carrieres juridiques', courses: ['Assistant juridique', 'Droit des affaires', 'Douane et transit', 'Gestion fiscale'] },
+        { title: 'Education et developpement professionnel', courses: ['Didactique, developpement des curricula et enseignement', 'Gestion et administration de l education', 'Education speciale'] },
+        { title: 'Communication', courses: ['Journalisme'] },
+      ],
     },
   },
   {
@@ -83,12 +115,16 @@ export const faculties = [
     en: {
       title: 'Faculty of Health Sciences',
       summary: 'Professional health training focused on clinical practice, diagnostics, care, and public health.',
-      programs: ['State Registered Nursing', 'Pharmacy Technology', 'Medical Laboratory Sciences', 'Midwifery Support', 'Community Health'],
+      programs: [
+        { title: 'Biomedical Science', courses: ['Nursing', 'Medical Laboratory Sciences', 'Medical Imaging Technology', 'Pharmacy Technology', 'Dental Therapy', 'Midwifery', 'Optical/Clinical Optometry', 'Physiotherapy', 'Health Sanitary Inspection', 'Nutrition and Dietetics'] },
+      ],
     },
     fr: {
       title: 'Faculte des Sciences de la Sante',
       summary: 'Formations de sante orientees pratique clinique, diagnostic, soins et sante publique.',
-      programs: ['Infirmier diplome d Etat', 'Technologie pharmaceutique', 'Laboratoire medical', 'Appui en sage-femme', 'Sante communautaire'],
+      programs: [
+        { title: 'Sciences medicales et biomedicales', courses: ['Soins infirmiers', 'Sciences de laboratoire medical', 'Imagerie medicale', 'Technologie pharmaceutique', 'Therapie dentaire', 'Sage-femme / maieutique', 'Optique / optometrie clinique', 'Physiotherapie', 'Inspection sanitaire de la sante', 'Nutrition et dietetique'] },
+      ],
     },
   },
 ];
@@ -152,36 +188,23 @@ export const trainingCycles = [
   {
     slug: 'bts-bachelor-master',
     en: {
-      title: "BTS / Bachelor's / Master's Cycle",
-      summary: 'Francophone academic tracks with professional projects, internships, and entrepreneurship coaching.',
+      title: 'BTS / Bachelor / Master - Francophone',
+      summary: 'French-language BTS, Bachelor, and Master tracks with day and evening sessions, projects, internships, and work-study options.',
     },
     fr: {
       title: 'Cycle BTS / Licence / Master',
-      summary: 'Parcours francophones avec projets professionnels, stages et accompagnement entrepreneurial.',
+      summary: 'Parcours francophones BTS, Licence et Master avec cours du jour et du soir, projets, stages et alternance.',
     },
   },
   {
     slug: 'hnd-cycle',
     en: {
-      title: 'HND Cycle (English-speaking)',
-      summary: 'English-speaking higher national diploma tracks across the three faculties.',
+      title: 'HND / Bachelor / Master - English',
+      summary: 'English-language HND, Bachelor, and Master pathways across business, engineering, technology, and biomedical sciences.',
     },
     fr: {
-      title: 'Cycle HND (anglophone)',
-      summary: 'Parcours anglophones Higher National Diploma dans les trois facultes.',
-    },
-  },
-  {
-    slug: 'professional-certifications',
-    en: {
-      title: 'Professional Certifications',
-      summary: 'Short executive and specialist credentials connected to Dunamis programs in technology, finance, management, health, and entrepreneurship.',
-      programs: ['Technology & Cybersecurity', 'Finance & Accounting', 'Health Sciences Upskilling', 'Executive DBA & Specialized Masters'],
-    },
-    fr: {
-      title: 'Certifications professionnelles',
-      summary: 'Certifications courtes et specialisees connectees aux programmes Dunamis en technologie, finance, management, sante et entrepreneuriat.',
-      programs: ['Technologie & cybersecurite', 'Finance & comptabilite', 'Perfectionnement sante', 'DBA executif & Masters specialises'],
+      title: 'Cycle HND / Bachelor / Master - Anglophone',
+      summary: 'Parcours anglophones HND, Bachelor et Master en business, ingenierie, technologie et sciences biomedicales.',
     },
   },
 ];
@@ -223,25 +246,23 @@ export const pages = {
     en: {
       eyebrow: 'Admission',
       title: 'Start your Dunamis application',
-      intro: 'Choose your program, prepare the required documents, and submit your online application for review.',
+      intro: 'Prepare your admission file and contact the admissions team for program placement, scholarship information, and registration support.',
       sections: [
-        { title: 'How to apply', text: 'Complete the online form, select your cycle and faculty, then submit your academic records.' },
-        { title: 'Admission requirements', text: 'ID, transcripts, previous diplomas, passport photo, and program-specific prerequisites.' },
-        { title: 'Tuition fees', text: 'Transparent fee guidance with payment plans depending on cycle and faculty.' },
-        { title: 'Scholarships & Financial aid', text: 'Merit, need-based, and apprenticeship-linked support can reduce student costs.' },
-        { title: 'Academic calendar', text: 'Main intake begins in September, with information sessions and rolling support before classes start.' },
+        { title: 'Admission requirements', text: 'Valid ID card or passport, academic transcripts, previous diploma or certificate, passport photo, and a completed application request.' },
+        { title: 'Scholarship support', text: 'A 50,000 FCFA scholarship is promoted on the admission flyer, with guidance from the admissions team.' },
+        { title: 'Student advantages', text: 'Free laptop offer for eligible early registrations, modern classrooms, multimedia spaces, biomedical laboratories, and campus Wi-Fi.' },
+        { title: 'Class sessions', text: 'Day and evening sessions are available depending on the program and intake.' },
       ],
     },
     fr: {
       eyebrow: 'Admission',
       title: 'Demarrez votre candidature a Dunamis',
-      intro: 'Choisissez votre programme, preparez les pieces requises et soumettez votre candidature en ligne.',
+      intro: 'Preparez votre dossier et contactez les admissions pour le choix du programme, les bourses et l inscription.',
       sections: [
-        { title: 'Comment postuler', text: 'Remplissez le formulaire, choisissez votre cycle et votre faculte, puis transmettez vos releves.' },
-        { title: 'Conditions d admission', text: 'Piece d identite, releves, diplomes, photo et prerequis propres au programme.' },
-        { title: 'Frais de scolarite', text: 'Informations claires avec modalites de paiement selon le cycle et la faculte.' },
-        { title: 'Bourses & Aides financieres', text: 'Aides au merite, sociales et liees a l alternance pour reduire les couts.' },
-        { title: 'Calendrier academique', text: 'Rentree principale en septembre, avec sessions d information et accompagnement en amont.' },
+        { title: 'Conditions d admission', text: 'Piece d identite ou passeport, releves de notes, diplome ou attestation, photo passeport et demande de candidature completee.' },
+        { title: 'Bourse', text: 'Une bourse de 50 000 FCFA est annoncee sur le flyer, avec accompagnement par le service admissions.' },
+        { title: 'Avantages etudiants', text: 'Offre de laptop gratuit pour les inscriptions eligibles avant septembre, salles modernes, multimedia, laboratoires biomedical et Wi-Fi.' },
+        { title: 'Sessions de cours', text: 'Cours du jour et du soir selon le programme et la rentree.' },
       ],
     },
   },
@@ -407,21 +428,13 @@ export const pages = {
       eyebrow: 'Contact',
       title: 'Talk to Dunamis',
       intro: 'Reach the admissions and information team for directions, answers, and application support.',
-      sections: [
-        { title: 'Contact us', text: 'Use the form or call the support line for admissions and partnership questions.' },
-        { title: 'Directions', text: 'Visit the campus for information sessions, interviews, and student support.' },
-        { title: 'FAQ', text: 'Find quick answers about programs, fees, documents, scholarships, and apprenticeship.' },
-      ],
+      sections: [],
     },
     fr: {
       eyebrow: 'Contact',
       title: 'Contactez Dunamis',
       intro: 'Joignez l equipe admissions et information pour orientation, reponses et accompagnement.',
-      sections: [
-        { title: 'Nous contacter', text: 'Utilisez le formulaire ou appelez pour les questions admission et partenariat.' },
-        { title: 'Itineraire', text: 'Visitez le campus pour les sessions d information, entretiens et accompagnement.' },
-        { title: 'FAQ', text: 'Trouvez des reponses sur formations, frais, documents, bourses et alternance.' },
-      ],
+      sections: [],
     },
   },
 };
@@ -446,8 +459,7 @@ export const navigation = [
     path: '/training',
     children: [
       ['BTS / Bachelor / Master', 'BTS / Licence / Master', '/training/bts-bachelor-master'],
-      ['HND Cycle (English-speaking)', 'Cycle HND (anglophone)', '/training/hnd-cycle'],
-      ['Professional Certifications', 'Certifications professionnelles', '/training/professional-certifications'],
+      ['HND / Bachelor / Master', 'HND / Bachelor / Master', '/training/hnd-cycle'],
     ],
   },
   {

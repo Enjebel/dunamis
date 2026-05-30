@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Briefcase, CalendarDays, Globe2, GraduationCap, Users } from 'lucide-react';
@@ -10,10 +10,43 @@ const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 const Home = () => {
   const { t, i18n } = useTranslation();
   const lang = getLang(i18n.language);
+  const [activeSlide, setActiveSlide] = useState(0);
   const copy = {
     en: {
       title: 'Dunamis, The Entrepreneurial University',
       lead: 'A professional university for students who want recognized training, company experience, international mobility, and the confidence to create value.',
+      slides: [
+        {
+          image: heroImages.university,
+          kicker: 'Dunamis University',
+          title: 'Dunamis, The Entrepreneurial University',
+          lead: 'A professional university for recognized training, company experience, international mobility, and the confidence to create value.',
+          primary: 'Apply Online',
+          primaryPath: '/admission/apply',
+          secondary: 'Explore Programs',
+          secondaryPath: '/training',
+        },
+        {
+          image: heroImages.apprenticeship,
+          kicker: 'Work-study model',
+          title: '3 days in class, 3 days in a company',
+          lead: 'Dunamis connects lessons with real professional practice: students spend part of the week in class, then apply what they learn inside a company, building confidence, discipline, and practical work experience before graduation.',
+          primary: 'See Apprenticeship',
+          primaryPath: '/apprenticeship',
+          secondary: 'Contact Admissions',
+          secondaryPath: '/contact',
+        },
+        {
+          image: localImages[9],
+          kicker: 'Why choose us',
+          title: 'Scholarship, laptop offers, modern labs, and Wi-Fi',
+          lead: 'Students choose Dunamis for practical teaching, scholarship support, laptop offers for eligible early registrations, day and evening sessions, equipped multimedia rooms, biomedical laboratories, campus Wi-Fi, and lecturers focused on professional success.',
+          primary: 'Admission Requirements',
+          primaryPath: '/admission/requirements',
+          secondary: 'Apply Online',
+          secondaryPath: '/admission/apply',
+        },
+      ],
       admission: 'Admission 2026',
       session: 'Book an information or admission appointment',
       why: 'Why Choose Dunamis',
@@ -34,6 +67,38 @@ const Home = () => {
     fr: {
       title: "Dunamis, l'Universite Entrepreneuriale",
       lead: 'Une universite professionnelle pour les etudiants qui veulent une formation reconnue, une experience entreprise, une mobilite internationale et la confiance pour creer de la valeur.',
+      slides: [
+        {
+          image: heroImages.university,
+          kicker: 'Dunamis University',
+          title: "Dunamis, l'Universite Entrepreneuriale",
+          lead: 'Une universite professionnelle pour une formation reconnue, une experience en entreprise, la mobilite internationale et la creation de valeur.',
+          primary: 'Postuler en ligne',
+          primaryPath: '/admission/apply',
+          secondary: 'Voir les formations',
+          secondaryPath: '/training',
+        },
+        {
+          image: heroImages.apprenticeship,
+          kicker: 'Alternance',
+          title: '3 jours en cours, 3 jours en entreprise',
+          lead: 'Dunamis relie les cours a la pratique: les etudiants apprennent en classe puis appliquent en entreprise pour developper confiance, discipline et experience professionnelle avant le diplome.',
+          primary: 'Voir l alternance',
+          primaryPath: '/apprenticeship',
+          secondary: 'Contacter les admissions',
+          secondaryPath: '/contact',
+        },
+        {
+          image: localImages[9],
+          kicker: 'Pourquoi nous choisir',
+          title: 'Bourse, laptop, salles modernes, labo et Wi-Fi',
+          lead: 'Dunamis offre un cadre pratique avec bourse, offre laptop pour inscriptions eligibles, cours du jour et du soir, salles multimedia, laboratoire biomedical, Wi-Fi et enseignants orientes vers la reussite professionnelle.',
+          primary: 'Conditions d admission',
+          primaryPath: '/admission/requirements',
+          secondary: 'Postuler',
+          secondaryPath: '/admission/apply',
+        },
+      ],
       admission: 'Admission 2026',
       session: "Prendre un rendez-vous d'information ou d'admission",
       why: 'Pourquoi Choisir Dunamis',
@@ -52,24 +117,50 @@ const Home = () => {
       ],
     },
   }[lang];
+  const slide = copy.slides[activeSlide] || copy.slides[0];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % copy.slides.length);
+    }, 5500);
+    return () => window.clearInterval(timer);
+  }, [copy.slides.length]);
 
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.home} alt="Students on campus" className="absolute inset-0 h-full w-full object-cover opacity-45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/35" />
+        {copy.slides.map((item, index) => (
+          <img
+            key={item.title}
+            src={item.image || heroImages.home}
+            alt=""
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-out ${activeSlide === index ? 'scale-100 opacity-100' : 'scale-105 opacity-0'}`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/35 to-slate-950/5" />
         <div className="du-section relative grid min-h-[76vh] gap-10 py-16 lg:grid-cols-[1fr_380px] lg:items-center">
-          <div>
-            <p className="du-kicker mb-5">Dunamis University</p>
-            <h1 className="max-w-4xl text-5xl font-black leading-[0.98] tracking-tight md:text-7xl">{copy.title}</h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-slate-200 md:text-xl">{copy.lead}</p>
+          <div key={slide.title} className="reveal-up flex min-h-[430px] flex-col justify-center md:min-h-[470px]">
+            <p className="du-kicker mb-5">{slide.kicker}</p>
+            <h1 className="max-w-4xl text-5xl font-black leading-[0.98] tracking-tight md:text-7xl">{slide.title}</h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-slate-100 md:text-xl">{slide.lead}</p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/admission/apply" className="inline-flex items-center gap-2 bg-univOrange px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen">
-                {t('actions.apply')} <ArrowRight size={18} />
+              <Link to={slide.primaryPath} className="inline-flex items-center gap-2 bg-univOrange px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen">
+                {slide.primary} <ArrowRight size={18} />
               </Link>
-              <Link to="/training" className="inline-flex items-center gap-2 border border-white/40 px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-white hover:text-slate-950">
-                {t('actions.explorePrograms')}
+              <Link to={slide.secondaryPath} className="inline-flex items-center gap-2 border border-white/50 px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-white hover:text-slate-950">
+                {slide.secondary}
               </Link>
+            </div>
+            <div className="mt-8 flex gap-2">
+              {copy.slides.map((item, index) => (
+                <button
+                  key={item.title}
+                  type="button"
+                  onClick={() => setActiveSlide(index)}
+                  aria-label={`Show slide ${index + 1}`}
+                  className={`h-2.5 transition-all ${activeSlide === index ? 'w-10 bg-univOrange' : 'w-2.5 bg-white/60 hover:bg-white'}`}
+                />
+              ))}
             </div>
           </div>
 

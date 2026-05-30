@@ -52,13 +52,13 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900 p-12 rounded-[40px] shadow-2xl text-white">
-          <h2 className="text-3xl font-black mb-8 uppercase tracking-tighter text-univOrange">Send a Message</h2>
+        <div className="bg-white p-8 shadow-xl border border-slate-100 md:p-12">
+          <h2 className="text-3xl font-black mb-8 uppercase tracking-tighter text-slate-950">Send a Message</h2>
           <form className="space-y-6">
-            <label className="du-field"><span className="du-label text-slate-300">Visitor name</span><input type="text" placeholder="Enter your full name" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500" /></label>
-            <label className="du-field"><span className="du-label text-slate-300">Visitor email address</span><input type="email" placeholder="Enter your email address" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500" /></label>
-            <label className="du-field"><span className="du-label text-slate-300">Message or inquiry details</span><textarea placeholder="Tell us how we can help" rows="4" className="w-full bg-white/10 border border-white/20 rounded-xl p-4 text-white placeholder:text-slate-500"></textarea></label>
-            <button className="w-full bg-univGreen text-white font-black uppercase tracking-widest py-4 rounded-xl hover:bg-univOrange transition-colors">Send Inquiry</button>
+            <label className="du-field"><span className="du-label">Visitor name</span><input type="text" placeholder="Enter your full name" className="du-input w-full py-4" /></label>
+            <label className="du-field"><span className="du-label">Visitor email address</span><input type="email" placeholder="Enter your email address" className="du-input w-full py-4" /></label>
+            <label className="du-field"><span className="du-label">Message or inquiry details</span><textarea placeholder="Tell us how we can help" rows="4" className="du-input w-full py-4"></textarea></label>
+            <button className="w-full bg-univGreen text-white font-black uppercase tracking-widest py-4 hover:bg-univOrange transition-colors">Send Inquiry</button>
           </form>
         </div>
       </div>

@@ -27,10 +27,11 @@ const Admission = () => {
 
   return (
     <div className="pt-16 bg-slate-50 min-h-screen">
-      <header className="bg-univGreen py-20 text-white text-center">
+      <header className="border-b border-slate-200 bg-white py-20 text-center">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter">Admission <span className="text-univOrange">Process</span></h1>
-          <p className="text-xl max-w-2xl mx-auto opacity-90">Start your entrepreneurial journey at Dunamis today.</p>
+          <p className="du-kicker mb-4">Admission</p>
+          <h1 className="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter text-slate-950">Admission <span className="text-univOrange">Process</span></h1>
+          <p className="text-xl max-w-2xl mx-auto text-slate-600">Start your entrepreneurial journey at Dunamis today.</p>
         </div>
       </header>
 

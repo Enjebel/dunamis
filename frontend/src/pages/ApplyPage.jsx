@@ -13,11 +13,11 @@ const ApplyPage = () => {
       eyebrow: 'Admission',
       title: 'Apply online to Dunamis University',
       intro: 'Submit your first application details. The admissions team will contact you to confirm your program, documents, interview, and next steps.',
-      stepsTitle: 'Admission process',
-      steps: ['Choose your training cycle', 'Submit your documents', 'Complete the motivation interview', 'Receive your admission decision', 'Confirm registration and prepare orientation'],
-      documents: ['Valid ID or passport', 'Academic transcripts', 'Previous diploma or certificate', 'Passport photo', 'Motivation statement'],
+      requirementsTitle: 'Admission requirements',
+      requirements: ['Valid ID card or passport', 'Academic transcripts', 'Previous diploma or certificate', 'Passport photo', 'Completed application request'],
+      documents: ['50,000 FCFA scholarship support promoted on the flyer', 'Free laptop offer for eligible early registrations', 'Day and evening sessions', 'Modern classrooms, multimedia spaces, biomedical laboratory, and campus Wi-Fi'],
       formTitle: 'Application request',
-      submit: 'Send application request',
+      submit: 'Send request on WhatsApp',
       call: 'Call admissions',
       whatsapp: 'Write on WhatsApp',
     },
@@ -25,21 +25,35 @@ const ApplyPage = () => {
       eyebrow: 'Admission',
       title: 'Postuler en ligne a Dunamis University',
       intro: 'Envoyez vos premieres informations de candidature. L equipe admissions vous contactera pour confirmer programme, pieces, entretien et prochaines etapes.',
-      stepsTitle: 'Processus d admission',
-      steps: ['Choisir votre cycle de formation', 'Soumettre vos pieces', 'Passer l entretien de motivation', 'Recevoir la decision d admission', 'Confirmer l inscription et preparer la rentree'],
-      documents: ['Piece d identite ou passeport', 'Releves de notes', 'Diplome ou attestation precedent', 'Photo passeport', 'Lettre de motivation'],
+      requirementsTitle: 'Conditions d admission',
+      requirements: ['Piece d identite ou passeport', 'Releves de notes', 'Diplome ou attestation', 'Photo passeport', 'Demande de candidature completee'],
+      documents: ['Bourse de 50 000 FCFA annoncee sur le flyer', 'Offre de laptop gratuit pour inscriptions eligibles', 'Cours du jour et du soir', 'Salles modernes, multimedia, laboratoire biomedical et Wi-Fi'],
       formTitle: 'Demande de candidature',
-      submit: 'Envoyer la demande',
+      submit: 'Envoyer sur WhatsApp',
       call: 'Appeler les admissions',
       whatsapp: 'Ecrire sur WhatsApp',
     },
   }[lang];
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const message = [
+      'Dunamis admission request',
+      `Name: ${data.get('name') || ''}`,
+      `Email: ${data.get('email') || ''}`,
+      `Phone: ${data.get('phone') || ''}`,
+      `Cycle: ${data.get('cycle') || ''}`,
+      `Message: ${data.get('message') || ''}`,
+    ].join('\n');
+    window.open(`${contactInfo.whatsappHref}?text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
+  };
+
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.admission} alt="" className="absolute inset-0 h-full w-full object-cover opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+        <img src={heroImages.admission} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative grid min-h-[52vh] gap-10 py-16 lg:grid-cols-[1fr_360px] lg:items-center">
           <div className="reveal-up">
             <p className="du-kicker mb-5">{copy.eyebrow}</p>
@@ -65,9 +79,9 @@ const ApplyPage = () => {
       <section className="du-section grid gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-8">
           <div className="du-panel p-7 reveal-up">
-            <h2 className="text-3xl font-black text-slate-950">{copy.stepsTitle}</h2>
+            <h2 className="text-3xl font-black text-slate-950">{copy.requirementsTitle}</h2>
             <div className="mt-6 space-y-4">
-              {copy.steps.map((step, index) => (
+              {copy.requirements.map((step, index) => (
                 <div key={step} className="flex gap-4 border-b border-slate-100 pb-4 last:border-b-0 last:pb-0">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-univOrange text-sm font-black text-white">0{index + 1}</span>
                   <p className="font-bold text-slate-700">{step}</p>
@@ -85,23 +99,24 @@ const ApplyPage = () => {
           </div>
         </div>
 
-        <form className="du-panel grid gap-5 p-7 reveal-up" style={{ animationDelay: '0.12s' }}>
+        <form onSubmit={handleSubmit} className="du-panel grid gap-5 p-7 reveal-up" style={{ animationDelay: '0.12s' }}>
           <h2 className="text-3xl font-black text-slate-950">{copy.formTitle}</h2>
           <div className="grid gap-5 md:grid-cols-2">
-            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Nom complet du candidat' : 'Applicant full name'}</span><input className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre nom complet' : 'Enter your full name'} /></label>
-            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Adresse email du candidat' : 'Applicant email address'}</span><input className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre adresse email' : 'Enter your email address'} type="email" /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Nom complet du candidat' : 'Applicant full name'}</span><input name="name" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre nom complet' : 'Enter your full name'} required /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Adresse email du candidat' : 'Applicant email address'}</span><input name="email" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre adresse email' : 'Enter your email address'} type="email" /></label>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Numero telephone ou WhatsApp' : 'Phone or WhatsApp number'}</span><input className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre numero de telephone' : 'Enter your phone number'} /></label>
-            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Cycle de formation souhaite' : 'Desired training cycle'}</span><select className="du-input py-4" defaultValue="">
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Numero telephone ou WhatsApp' : 'Phone or WhatsApp number'}</span><input name="phone" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre numero de telephone' : 'Enter your phone number'} required /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Cycle de formation souhaite' : 'Desired training cycle'}</span><select name="cycle" className="du-input py-4" defaultValue="" required>
               <option value="" disabled>{lang === 'fr' ? 'Choisir un cycle' : 'Choose a cycle'}</option>
               {trainingCycles.map((cycle) => <option key={cycle.slug}>{cycle[lang].title}</option>)}
             </select></label>
           </div>
-          <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Programme, niveau actuel et questions' : 'Program, current level, and questions'}</span><textarea className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Decrivez le programme souhaite, votre niveau actuel et vos questions' : 'Describe your desired program, current level, and questions'} /></label>
-          <button type="button" className="inline-flex items-center justify-center gap-2 bg-univOrange px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen">
+          <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Programme, niveau actuel et questions' : 'Program, current level, and questions'}</span><textarea name="message" className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Decrivez le programme souhaite, votre niveau actuel et vos questions' : 'Describe your desired program, current level, and questions'} /></label>
+          <button type="submit" className="inline-flex items-center justify-center gap-2 bg-univOrange px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen">
             {copy.submit} <ArrowRight size={18} />
           </button>
+          <a href={`mailto:${contactInfo.email}`} className="text-center text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen">{contactInfo.email}</a>
         </form>
       </section>
     </div>

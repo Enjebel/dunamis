@@ -48,7 +48,6 @@ const Navbar = () => {
             <div className="flex items-center gap-5 text-xs font-black uppercase tracking-widest">
               <span className="text-slate-400">Infos</span>
               <Link to="/news" className="text-slate-700 hover:text-univGreen">Brochure</Link>
-              <Link to="/admission/requirements" className="text-slate-700 hover:text-univGreen">Application File</Link>
               <LanguageSwitcher />
             </div>
           </div>
@@ -86,7 +85,7 @@ const Navbar = () => {
               <Link to="/admission/apply" className="whitespace-nowrap bg-univOrange px-4 py-4 text-[11px] font-black uppercase tracking-widest text-white hover:bg-univGreen xl:px-5 xl:text-xs">
                 Apply Online
               </Link>
-              <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="hidden whitespace-nowrap bg-slate-950 px-4 py-4 text-[11px] font-black uppercase tracking-widest text-white hover:bg-univGreen xl:inline-flex xl:px-5 xl:text-xs">
+              <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="hidden whitespace-nowrap border border-slate-200 px-4 py-4 text-[11px] font-black uppercase tracking-widest text-slate-900 hover:border-univGreen hover:text-univGreen xl:inline-flex xl:px-5 xl:text-xs">
                 WhatsApp
               </a>
             </div>
@@ -101,8 +100,8 @@ const Navbar = () => {
               <p className="du-kicker">Dunamis</p>
               <h2 className="mt-4 text-3xl font-black leading-tight">Find the right path by level, faculty, or ambition.</h2>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link to="/admission/apply" onClick={() => setDesktopMenu(false)} className="bg-univOrange px-4 py-3 text-xs font-black uppercase tracking-widest">Apply</Link>
-                <Link to="/contact" onClick={() => setDesktopMenu(false)} className="border border-white/30 px-4 py-3 text-xs font-black uppercase tracking-widest">Contact</Link>
+                <Link to="/admission/apply" onClick={() => setDesktopMenu(false)} className="bg-univOrange px-4 py-3 text-xs font-black uppercase tracking-widest text-white">Apply</Link>
+                <Link to="/contact" onClick={() => setDesktopMenu(false)} className="border border-white/30 px-4 py-3 text-xs font-black uppercase tracking-widest text-white hover:border-univOrange hover:text-univOrange">Contact</Link>
               </div>
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-slate-400">Portals</p>
@@ -148,7 +147,7 @@ const Navbar = () => {
       {open && (
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-5 lg:hidden">
           <div className="mb-5 grid grid-cols-2 gap-3">
-            <a href={contactInfo.phoneHref} className="bg-slate-950 px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">Call</a>
+            <a href={contactInfo.phoneHref} className="border border-slate-200 px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-slate-900">Call</a>
             <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="bg-univGreen px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">WhatsApp</a>
             <Link to="/admission/apply" onClick={() => setOpen(false)} className="col-span-2 bg-univOrange px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">Apply Online</Link>
           </div>

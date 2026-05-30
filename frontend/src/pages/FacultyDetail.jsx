@@ -15,8 +15,8 @@ const FacultyDetail = () => {
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative min-h-[48vh] overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.training} alt="" className="absolute inset-0 h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+        <img src={heroImages.training} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative flex min-h-[48vh] flex-col justify-center py-16">
           <Link to="/training" className="mb-7 inline-flex w-fit items-center gap-2 text-sm font-black uppercase tracking-widest text-univOrange hover:text-white">
             <ArrowLeft size={18} /> {lang === 'fr' ? 'Retour aux formations' : 'Back to training'}
@@ -30,14 +30,17 @@ const FacultyDetail = () => {
         <h2 className="mb-8 text-3xl font-black text-slate-950">{lang === 'fr' ? 'Programmes et specialisations' : 'Programs and specializations'}</h2>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {faculty[lang].programs.map((program) => (
-            <article key={program} className="du-panel p-7">
+            <article key={program.title} className="du-panel p-7">
               <CheckCircle2 className="mb-5 text-univGreen" size={28} />
-              <h3 className="text-xl font-black text-slate-950">{program}</h3>
-              <p className="mt-3 leading-relaxed text-slate-600">
-                {lang === 'fr'
-                  ? 'Parcours pratique avec projets, mentorat et preparation a l insertion professionnelle.'
-                  : 'A practical pathway with projects, mentorship, and preparation for professional integration.'}
-              </p>
+              <h3 className="text-xl font-black text-slate-950">{program.title}</h3>
+              <ul className="mt-5 space-y-3">
+                {program.courses.map((course) => (
+                  <li key={course} className="flex gap-3 text-sm font-semibold leading-relaxed text-slate-700">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-univOrange" />
+                    {course}
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>

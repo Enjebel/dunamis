@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -30,10 +30,10 @@ const universityFocus = {
 
 const admissionFocus = {
   'how-to-apply': 0,
-  requirements: 1,
+  requirements: 0,
   'tuition-fees': 2,
-  scholarships: 3,
-  calendar: 4,
+  scholarships: 1,
+  calendar: 3,
 };
 
 const studentLifeFocus = {
@@ -47,6 +47,12 @@ const studentLifeFocus = {
 function App() {
   const location = useLocation();
   const isPortal = ['/admin', '/student', '/library', '/login'].some((path) => location.pathname === path || location.pathname.startsWith(`${path}/`));
+
+  useEffect(() => {
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }, [location.pathname]);
 
   return (
     <Suspense

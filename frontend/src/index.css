@@ -53,6 +53,7 @@
   .du-image-zoom {
     @apply transition duration-700 ease-out hover:scale-105;
   }
+
 }
 
 @keyframes revealUp {

@@ -13,12 +13,23 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
   const image = heroImages[pageKey] || pages[pageKey]?.image || localImages[0];
   const sections = Number.isInteger(focusIndex) ? [page.sections[focusIndex]].filter(Boolean) : focusTitle ? page.sections.filter((section) => section.title.toLowerCase() === focusTitle.toLowerCase()) : page.sections;
   const visibleSections = sections.length ? sections : page.sections;
+  const handleContactSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const message = [
+      'Dunamis website contact request',
+      `Name: ${data.get('name') || ''}`,
+      `Email: ${data.get('email') || ''}`,
+      `Message: ${data.get('message') || ''}`,
+    ].join('\n');
+    window.open(`${contactInfo.whatsappHref}?text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
+  };
 
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative min-h-[54vh] overflow-hidden bg-slate-950 text-white">
-        <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+        <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative flex min-h-[54vh] flex-col justify-center py-20">
           <p className="du-kicker mb-5">{page.eyebrow}</p>
           <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">{focusTitle || page.title}</h1>
@@ -31,6 +42,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
         </div>
       </section>
 
+      {pageKey !== 'contact' && visibleSections.length > 0 && (
       <section className="du-section grid gap-10 py-16 lg:grid-cols-[280px_1fr]">
         <aside className="h-fit border border-slate-200 bg-univGray p-6 lg:sticky lg:top-36">
           <p className="du-kicker mb-4">{page.eyebrow}</p>
@@ -55,6 +67,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
           ))}
         </div>
       </section>
+      )}
 
       {pageKey === 'university' && Number.isInteger(focusIndex) && (
         <section className="bg-univGray py-16">
@@ -77,14 +90,14 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
       )}
 
       {pageKey === 'studentLife' && (
-        <section className="bg-slate-950 py-16 text-white">
+        <section className="bg-univGray py-16 text-slate-950">
           <div className="du-section">
             <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.3em] text-univOrange">Facebook</p>
                 <h2 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">Campus Highlights</h2>
               </div>
-              <a href="https://www.facebook.com/people/Dunamis-The-Entrepreneurial-University/61578043154713/" target="_blank" rel="noreferrer" className="text-sm font-black uppercase tracking-widest text-univOrange hover:text-white">
+              <a href="https://www.facebook.com/people/Dunamis-The-Entrepreneurial-University/61578043154713/" target="_blank" rel="noreferrer" className="text-sm font-black uppercase tracking-widest text-univOrange hover:text-univGreen">
                 Facebook page
               </a>
             </div>
@@ -126,13 +139,14 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
               </div>
             ))}
           </div>
-          <form className="grid gap-4 bg-slate-950 p-6 text-white md:p-8">
-            <label className="du-field"><span className="du-label text-slate-300">{lang === 'fr' ? 'Nom du visiteur' : 'Visitor name'}</span><input className="rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Entrez votre nom' : 'Enter your name'} /></label>
-            <label className="du-field"><span className="du-label text-slate-300">{lang === 'fr' ? 'Adresse email' : 'Email address'}</span><input className="rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Entrez votre email' : 'Enter your email'} type="email" /></label>
-            <label className="du-field"><span className="du-label text-slate-300">{lang === 'fr' ? 'Message a envoyer' : 'Message to send'}</span><textarea className="min-h-36 rounded border border-white/10 bg-white/10 px-4 py-4 outline-none focus:border-univOrange" placeholder={lang === 'fr' ? 'Ecrivez votre message' : 'Write your message'} /></label>
-            <button className="rounded bg-univOrange px-5 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen" type="button">
-              {lang === 'fr' ? 'Envoyer' : 'Send message'}
+          <form onSubmit={handleContactSubmit} className="du-panel grid gap-4 p-6 md:p-8">
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Nom du visiteur' : 'Visitor name'}</span><input name="name" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre nom' : 'Enter your name'} required /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Adresse email' : 'Email address'}</span><input name="email" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre email' : 'Enter your email'} type="email" /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Message a envoyer' : 'Message to send'}</span><textarea name="message" className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Ecrivez votre message' : 'Write your message'} required /></label>
+            <button className="bg-univOrange px-5 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen" type="submit">
+              {lang === 'fr' ? 'Envoyer sur WhatsApp' : 'Send on WhatsApp'}
             </button>
+            <a href={`mailto:${contactInfo.email}`} className="text-center text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen">{contactInfo.email}</a>
           </form>
         </section>
       )}

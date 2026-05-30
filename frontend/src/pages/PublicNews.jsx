@@ -16,8 +16,8 @@ const PublicNews = () => {
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative min-h-[46vh] overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.news} alt="" className="absolute inset-0 h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+        <img src={heroImages.news} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative flex min-h-[46vh] flex-col justify-center py-16">
           <p className="du-kicker mb-5">News</p>
           <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">News, Activities, Events & Blog</h1>
