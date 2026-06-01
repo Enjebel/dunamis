@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Award, Building2, GraduationCap, HeartPulse } from 'lucide-react';
 import PartnerBar from '../components/PartnerBar';
-import { faculties, heroImages, trainingCycles } from '../data/siteContent';
-import { apiRequest } from '../lib/api';
+import { faculties, heroImagePositions, heroImages, trainingCycles } from '../data/siteContent';
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 const icons = [Building2, GraduationCap, HeartPulse];
@@ -12,21 +11,14 @@ const icons = [Building2, GraduationCap, HeartPulse];
 const Training = () => {
   const { i18n } = useTranslation();
   const { cycle } = useParams();
-  const [dbPrograms, setDbPrograms] = useState([]);
   const lang = getLang(i18n.language);
   const selectedCycle = trainingCycles.find((item) => item.slug === cycle);
-
-  useEffect(() => {
-    apiRequest('/programs')
-      .then(setDbPrograms)
-      .catch(() => setDbPrograms([]));
-  }, []);
 
   const copy = {
     en: {
       eyebrow: 'Training Courses',
       title: selectedCycle ? selectedCycle.en.title : 'Choose your professional pathway',
-      intro: selectedCycle ? selectedCycle.en.summary : "Dunamis organizes training into French-language BTS, Bachelor, Master and English-language HND, Bachelor, Master pathways across three faculties.",
+      intro: selectedCycle ? selectedCycle.en.summary : 'Dunamis organizes training into French-language BTS, Bachelor, Master and English-language HND, Bachelor, Master pathways across three faculties.',
       faculties: 'Faculties and specializations',
       cta: 'Explore this faculty',
     },
@@ -42,7 +34,7 @@ const Training = () => {
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative min-h-[54vh] overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.training} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <img src={heroImages.training} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" style={{ objectPosition: heroImagePositions.training }} />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative flex min-h-[54vh] flex-col justify-center py-20">
           <p className="du-kicker mb-5">{copy.eyebrow}</p>
@@ -53,7 +45,7 @@ const Training = () => {
 
       {!selectedCycle && (
         <section className="du-section py-14">
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2">
             {trainingCycles.map((item) => (
               <Link key={item.slug} to={`/training/${item.slug}`} className="du-panel du-hover-lift reveal-up p-7 hover:border-univGreen" style={{ animationDelay: `${trainingCycles.indexOf(item) * 0.05}s` }}>
                 <Award className="mb-5 text-univOrange" size={28} />
@@ -91,30 +83,6 @@ const Training = () => {
           })}
         </div>
       </section>
-
-      {dbPrograms.length > 0 && (
-        <section className="bg-univGray py-16">
-          <div className="du-section">
-            <div className="mb-8 max-w-3xl">
-              <p className="du-kicker">Academic Database</p>
-              <h2 className="mt-3 text-3xl font-black text-slate-950">Imported ministry course catalogues</h2>
-              <p className="mt-4 text-slate-600">
-                These program records are loaded from MongoDB and connected to the official files in the `programs/` folder.
-              </p>
-            </div>
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {dbPrograms.slice(0, 9).map((program) => (
-                <article key={program.code} className="du-panel p-6">
-                  <p className="text-xs font-black uppercase tracking-widest text-univOrange">{program.cycle} · {program.code}</p>
-                  <h3 className="mt-3 text-xl font-black text-slate-950">{program.name}</h3>
-                  <p className="mt-2 text-sm text-slate-500">{program.faculty}</p>
-                  <p className="mt-5 text-sm font-black text-univGreen">{program.courses?.length || 0} course records</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       <PartnerBar />
     </div>

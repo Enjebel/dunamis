@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Landmark, Target, Award, Users, MapPin, Shield, ChevronRight } from 'lucide-react';
+import { localImages } from '../data/siteContent';
 
 const University = () => {
   return (
@@ -17,10 +18,10 @@ const University = () => {
       <section className="py-20 bg-slate-50 animate-fade-up">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
           <div className="aspect-video bg-slate-200 rounded-[60px] overflow-hidden shadow-2xl border-8 border-white">
-             <img src="/images/university-campus.jpg" alt="Campus" className="w-full h-full object-cover" onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1523050853061-80e8a4ff147e?q=80&w=1200'} />
+             <img src={localImages[0]} alt="Campus" className="w-full h-full object-cover" />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-8 uppercase tracking-tight">A Word From <span className="text-univGreen">The Rector</span></h2>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-8 uppercase tracking-tight">A Word From <span className="text-univGreen">The Director</span></h2>
             <p className="text-slate-600 leading-relaxed text-lg mb-6 italic">
               "At Dunamis, we don't just teach business or technology; we cultivate the entrepreneurial spirit required to navigate the 4th Industrial Revolution."
             </p>
@@ -56,16 +57,15 @@ const University = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Campus Open Day", date: "Sept 15, 2024", img: "/images/event-1.jpg" },
-              { title: "Innovation Workshop", date: "Oct 05, 2024", img: "/images/event-2.jpg" },
-              { title: "Cultural Festival", date: "Nov 20, 2024", img: "/images/event-3.jpg" }
+              { title: "Campus Open Day", date: "Sept 15, 2024", img: localImages[4] },
+              { title: "Innovation Workshop", date: "Oct 05, 2024", img: localImages[10] },
+              { title: "Cultural Festival", date: "Nov 20, 2024", img: localImages[6] }
             ].map((event, i) => (
               <div key={i} className="group relative rounded-[40px] overflow-hidden shadow-lg h-80">
                 <img 
                   src={event.img} 
                   alt={event.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                  onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800'}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
                 <div className="absolute bottom-0 left-0 p-8">

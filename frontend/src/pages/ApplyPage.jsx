@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, CheckCircle2, FileText, MessageCircle, Phone } from 'lucide-react';
-import { contactInfo, heroImages, trainingCycles } from '../data/siteContent';
+import { contactInfo, heroImagePositions, heroImages, trainingCycles } from '../data/siteContent';
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 
@@ -52,7 +52,7 @@ const ApplyPage = () => {
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.admission} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <img src={heroImages.admission} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" style={{ objectPosition: heroImagePositions.admission }} />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative grid min-h-[52vh] gap-10 py-16 lg:grid-cols-[1fr_360px] lg:items-center">
           <div className="reveal-up">

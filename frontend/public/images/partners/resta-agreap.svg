@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="180" viewBox="0 0 420 180" role="img" aria-labelledby="title">
+  <title id="title">RESTA AGREAP</title>
+  <rect width="420" height="180" rx="18" fill="#ffffff"/>
+  <rect x="22" y="22" width="376" height="136" rx="14" fill="#f8fafc" stroke="#d7dee8"/>
+  <circle cx="92" cy="90" r="42" fill="#f97316"/>
+  <path d="M74 100c24-3 39-18 43-39 14 27 1 56-33 61 8-8 4-15-10-22Z" fill="#0f5132"/>
+  <text x="154" y="82" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900">RESTA</text>
+  <text x="154" y="120" fill="#0f5132" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900">AGREAP</text>
+</svg>

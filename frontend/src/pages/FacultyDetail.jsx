@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
-import { faculties, heroImages } from '../data/siteContent';
+import { faculties, heroImagePositions, heroImages } from '../data/siteContent';
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 
@@ -15,7 +15,7 @@ const FacultyDetail = () => {
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative min-h-[48vh] overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.training} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <img src={heroImages.training} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" style={{ objectPosition: heroImagePositions.training }} />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative flex min-h-[48vh] flex-col justify-center py-16">
           <Link to="/training" className="mb-7 inline-flex w-fit items-center gap-2 text-sm font-black uppercase tracking-widest text-univOrange hover:text-white">

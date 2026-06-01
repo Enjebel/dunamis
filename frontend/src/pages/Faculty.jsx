@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import InstitutionalInfoBlock from '../components/InstitutionalInfoBlock';
 
+const fallbackFacultyImage = '/images/Screenshot 2026-05-16 125538.png';
+const getLocalImage = (image) => (image?.startsWith('/images/') ? image : fallbackFacultyImage);
+
 const Faculty = () => {
   const [data, setData] = useState(null);
 
@@ -29,7 +32,7 @@ const Faculty = () => {
         {data.members?.map((member, i) => (
           <div key={i} className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 group hover:border-univGreen transition-all">
             <img 
-              src={member.image || 'https://via.placeholder.com/400x300?text=Faculty+Member'} 
+              src={getLocalImage(member.image)} 
               alt={member.name} 
               className="w-full h-56 object-cover grayscale group-hover:grayscale-0 transition-all"
             />

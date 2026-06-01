@@ -21,8 +21,8 @@ export const siteData = {
                 desc: "The supreme governing body responsible for policy formulation and long-term strategic direction." 
             },
             { 
-                role: "The Rectorate", 
-                desc: "Led by the Rector, this office manages daily academic and administrative operations." 
+                role: "The Directorate", 
+                desc: "Led by the Director, this office manages daily academic and administrative operations." 
             },
             { 
                 role: "The Academic Council", 

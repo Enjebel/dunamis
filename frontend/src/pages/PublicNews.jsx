@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CalendarDays, Newspaper } from 'lucide-react';
 import { apiAssetUrl, apiRequest } from '../lib/api';
-import { heroImages } from '../data/siteContent';
+import { heroImagePositions, heroImages } from '../data/siteContent';
 
 const PublicNews = () => {
   const [posts, setPosts] = useState([]);
@@ -16,7 +16,7 @@ const PublicNews = () => {
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative min-h-[46vh] overflow-hidden bg-slate-950 text-white">
-        <img src={heroImages.news} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <img src={heroImages.news} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" style={{ objectPosition: heroImagePositions.news }} />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative flex min-h-[46vh] flex-col justify-center py-16">
           <p className="du-kicker mb-5">News</p>

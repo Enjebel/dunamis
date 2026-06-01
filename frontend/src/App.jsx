@@ -37,11 +37,10 @@ const admissionFocus = {
 };
 
 const studentLifeFocus = {
-  accommodation: 0,
-  clubs: 1,
-  sports: 2,
-  wellness: 3,
-  incubator: 4,
+  clubs: 0,
+  sports: 1,
+  wellness: 2,
+  incubator: 3,
 };
 
 function App() {

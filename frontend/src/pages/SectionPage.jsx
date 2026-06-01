@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, CheckCircle2, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
-import { contactInfo, facebookVideos, heroImages, localImages, pages } from '../data/siteContent';
+import { contactInfo, facebookVideos, heroImagePositions, heroImages, localImages, pages } from '../data/siteContent';
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 
@@ -11,6 +11,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
   const lang = getLang(i18n.language);
   const page = pages[pageKey]?.[lang] || pages.university[lang];
   const image = heroImages[pageKey] || pages[pageKey]?.image || localImages[0];
+  const imagePosition = heroImagePositions[pageKey] || 'center center';
   const sections = Number.isInteger(focusIndex) ? [page.sections[focusIndex]].filter(Boolean) : focusTitle ? page.sections.filter((section) => section.title.toLowerCase() === focusTitle.toLowerCase()) : page.sections;
   const visibleSections = sections.length ? sections : page.sections;
   const handleContactSubmit = (event) => {
@@ -28,7 +29,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
   return (
     <div className="bg-white pt-20 lg:pt-[145px]">
       <section className="relative min-h-[54vh] overflow-hidden bg-slate-950 text-white">
-        <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+        <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-85" style={{ objectPosition: imagePosition }} />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/30 to-slate-950/5" />
         <div className="du-section relative flex min-h-[54vh] flex-col justify-center py-20">
           <p className="du-kicker mb-5">{page.eyebrow}</p>
@@ -75,7 +76,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
             {[
               ['mission-vision', ['Mission: train creators and leaders', 'Vision: a reference entrepreneurial university', 'Method: practice, mentorship, and industry projects']],
               ['values-charter', ['Integrity in every academic act', 'Discipline and respect for commitments', 'Service, innovation, and community impact']],
-              ['governance', ['Rectorate and academic leadership', 'Quality assurance and program review', 'Industry advisory input for employability']],
+              ['governance', ['Directorate and academic leadership', 'Quality assurance and program review', 'Industry advisory input for employability']],
               ['faculty', ['Practitioner lecturers and researchers', 'Professional mentors from companies', 'Student supervision and applied projects']],
               ['accreditations', ['Programs aligned to recognized standards', 'Internal review of learning outcomes', 'Employability and professional relevance indicators']],
               ['campus-infrastructure', ['Modern classrooms and seminar rooms', 'Computer, digital, and applied science labs', 'Student services, incubation, and collaboration spaces']],

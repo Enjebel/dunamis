@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="180" viewBox="0 0 420 180" role="img" aria-labelledby="title">
+  <title id="title">ACE Finance</title>
+  <rect width="420" height="180" rx="18" fill="#ffffff"/>
+  <rect x="22" y="22" width="376" height="136" rx="14" fill="#f8fafc" stroke="#d7dee8"/>
+  <path d="M58 122 91 56l33 66h-19l-6-14H82l-6 14H58Zm30-29h6l-3-8-3 8Z" fill="#0f5132"/>
+  <text x="142" y="84" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="900">ACE</text>
+  <text x="142" y="119" fill="#f97316" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">FINANCE S.A.</text>
+</svg>

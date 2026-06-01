@@ -1,4 +1,5 @@
 export const localImages = [
+  '/images/hero image.jpeg',
   '/images/Screenshot 2026-05-16 125341.png',
   '/images/Screenshot 2026-05-16 125420.png',
   '/images/Screenshot 2026-05-16 125435.png',
@@ -10,20 +11,43 @@ export const localImages = [
   '/images/Screenshot 2026-05-16 125653.png',
   '/images/Screenshot 2026-05-16 130928.png',
   '/images/Screenshot 2026-05-16 130959.png',
+  '/images/WhatsApp Image 2026-06-01 at 12.50.33 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 12.50.34 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 12.50.35 PM (1).jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 12.50.35 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 12.50.37 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 12.50.38 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 12.50.39 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 2.25.59 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-01 at 3.16.27 PM.jpeg',
 ];
 
 export const heroImages = {
-  home: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2200&auto=format&fit=crop',
-  training: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2200&auto=format&fit=crop',
-  university: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2200&auto=format&fit=crop',
-  admission: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2200&auto=format&fit=crop',
-  apprenticeship: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2200&auto=format&fit=crop',
-  international: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2200&auto=format&fit=crop',
-  studentLife: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2200&auto=format&fit=crop',
-  research: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2200&auto=format&fit=crop',
-  businesses: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2200&auto=format&fit=crop',
-  news: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2200&auto=format&fit=crop',
-  contact: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2200&auto=format&fit=crop',
+  home: localImages[0],
+  training: localImages[11],
+  university: localImages[0],
+  admission: localImages[0],
+  apprenticeship: localImages[6],
+  international: localImages[5],
+  studentLife: localImages[6],
+  research: localImages[10],
+  businesses: localImages[4],
+  news: localImages[5],
+  contact: localImages[0],
+};
+
+export const heroImagePositions = {
+  home: 'center 46%',
+  university: 'center 46%',
+  admission: 'center 46%',
+  training: 'center 50%',
+  apprenticeship: 'center 45%',
+  international: 'center 45%',
+  studentLife: 'center 42%',
+  research: 'center 45%',
+  businesses: 'center 45%',
+  news: 'center 45%',
+  contact: 'center 45%',
 };
 
 export const facebookVideos = [
@@ -44,11 +68,11 @@ export const contactInfo = {
 };
 
 export const officialPartners = [
-  { name: 'Fondation Muna', category: 'Foundation partner', initials: 'FM' },
-  { name: 'ACE BANK', category: 'Financial partner', initials: 'AB' },
-  { name: 'CREDIT FONCIER', category: 'Institutional finance', initials: 'CF' },
-  { name: 'RESTA AGREAP', category: 'Enterprise partner', initials: 'RA' },
-  { name: 'Hotel AUGUSTA', category: 'Hospitality partner', initials: 'HA' },
+  { name: 'Fondation Muna', category: 'Foundation partner', url: 'http://www.munafoundation.org/', logo: '/images/partners/fondation-muna.svg' },
+  { name: 'ACE FINANCE', category: 'Financial partner', url: 'https://www.ace-finance.net/', logo: '/images/partners/ace-finance.svg' },
+  { name: 'CREDIT FONCIER', category: 'Institutional finance', url: 'https://www.creditfoncier.cm/en/', logo: '/images/partners/credit-foncier.svg' },
+  { name: 'RESTA AGREAP', category: 'Enterprise partner', url: '', logo: '/images/partners/resta-agreap.svg' },
+  { name: 'Hotel AUGUSTA', category: 'Hospitality partner', url: 'https://hotelaugusta-cm.com/', logo: '/images/partners/hotel-augusta.svg' },
 ];
 
 export const faculties = [
@@ -217,7 +241,7 @@ export const pages = {
       title: 'An entrepreneurial university built for professional impact',
       intro: 'Dunamis combines academic rigor, enterprise culture, and practical training so students graduate ready to create, lead, and serve.',
       sections: [
-        { title: 'Message from the Rector', text: 'A call to build confident, ethical, and innovative graduates prepared for Africa and the world.' },
+        { title: 'Message from the Director', text: 'A call to build confident, ethical, and innovative graduates prepared for Africa and the world.' },
         { title: 'Mission & Vision', text: 'Empower students with the knowledge, discipline, and entrepreneurial power to transform opportunity into value.' },
         { title: 'Values & Charter', text: 'Integrity, discipline, service, excellence, innovation, and respect guide campus life and academic work.' },
         { title: 'Governance', text: 'Academic and administrative leadership focused on quality, accountability, and professional relevance.' },
@@ -231,7 +255,7 @@ export const pages = {
       title: 'Une universite entrepreneuriale tournee vers l impact professionnel',
       intro: 'Dunamis associe rigueur academique, culture d entreprise et formation pratique afin de former des diplomes prets a creer, diriger et servir.',
       sections: [
-        { title: 'Message du Recteur', text: 'Un appel a former des diplomes confiants, ethiques et innovants, prets pour l Afrique et le monde.' },
+        { title: 'Message du Directeur', text: 'Un appel a former des diplomes confiants, ethiques et innovants, prets pour l Afrique et le monde.' },
         { title: 'Mission & Vision', text: 'Donner aux etudiants les savoirs, la discipline et la puissance entrepreneuriale pour transformer les opportunites en valeur.' },
         { title: 'Valeurs & Charte', text: 'Integrite, discipline, service, excellence, innovation et respect structurent la vie du campus.' },
         { title: 'Gouvernance', text: 'Une direction academique et administrative orientee qualite, responsabilite et pertinence professionnelle.' },
@@ -327,7 +351,6 @@ export const pages = {
       title: 'A campus built for growth beyond the classroom',
       intro: 'Students find community, wellbeing, creativity, sports, and entrepreneurial support at Dunamis.',
       sections: [
-        { title: 'Accommodation', text: 'Guidance for safe and convenient housing options near campus.' },
         { title: 'Associations & Clubs', text: 'Student groups develop leadership, culture, service, and professional networks.' },
         { title: 'Sports', text: 'Campus activities encourage discipline, teamwork, and wellbeing.' },
         { title: 'Health & Wellness', text: 'Supportive services help students remain balanced and focused.' },
@@ -339,7 +362,6 @@ export const pages = {
       title: 'Un campus pour grandir au-dela des cours',
       intro: 'Les etudiants trouvent communaute, bien-etre, creativite, sport et accompagnement entrepreneurial.',
       sections: [
-        { title: 'Logement', text: 'Orientation vers des solutions sures et pratiques proches du campus.' },
         { title: 'Associations & Clubs', text: 'Les groupes etudiants developpent leadership, culture, service et reseaux.' },
         { title: 'Sports', text: 'Les activites encouragent discipline, esprit d equipe et bien-etre.' },
         { title: 'Sante & Bien-etre', text: 'Des services de soutien aident les etudiants a rester equilibres et concentres.' },
@@ -445,7 +467,7 @@ export const navigation = [
     id: 'university',
     path: '/university',
     children: [
-      ['Message from the Rector', 'Message du Recteur', '/university/rector'],
+      ['Message from the Director', 'Message du Directeur', '/university/rector'],
       ['Mission & Vision', 'Mission & Vision', '/university/mission-vision'],
       ['Values & Charter', 'Valeurs & Charte', '/university/values-charter'],
       ['Governance', 'Gouvernance', '/university/governance'],
@@ -480,15 +502,12 @@ export const navigation = [
     id: 'studentLife',
     path: '/student-life',
     children: [
-      ['Accommodation', 'Logement', '/student-life/accommodation'],
       ['Associations & Clubs', 'Associations & Clubs', '/student-life/clubs'],
       ['Sports', 'Sports', '/student-life/sports'],
       ['Health & Wellness', 'Sante & Bien-etre', '/student-life/wellness'],
       ['Entrepreneurship & Incubator', 'Entrepreneuriat & Incubateur', '/student-life/incubator'],
     ],
   },
-  { id: 'research', path: '/research' },
   { id: 'businesses', path: '/businesses' },
-  { id: 'news', path: '/news' },
   { id: 'contact', path: '/contact' },
 ];

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Briefcase, CalendarDays, Globe2, GraduationCap, Users } from 'lucide-react';
 import PartnerBar from '../components/PartnerBar';
-import { faculties, heroImages, localImages, pages, trainingCycles } from '../data/siteContent';
+import { faculties, heroImagePositions, heroImages, localImages, pages, trainingCycles } from '../data/siteContent';
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 
@@ -18,6 +18,7 @@ const Home = () => {
       slides: [
         {
           image: heroImages.university,
+          position: heroImagePositions.university,
           kicker: 'Dunamis University',
           title: 'Dunamis, The Entrepreneurial University',
           lead: 'A professional university for recognized training, company experience, international mobility, and the confidence to create value.',
@@ -28,6 +29,7 @@ const Home = () => {
         },
         {
           image: heroImages.apprenticeship,
+          position: heroImagePositions.apprenticeship,
           kicker: 'Work-study model',
           title: '3 days in class, 3 days in a company',
           lead: 'Dunamis connects lessons with real professional practice: students spend part of the week in class, then apply what they learn inside a company, building confidence, discipline, and practical work experience before graduation.',
@@ -37,7 +39,8 @@ const Home = () => {
           secondaryPath: '/contact',
         },
         {
-          image: localImages[9],
+          image: localImages[10],
+          position: heroImagePositions.training,
           kicker: 'Why choose us',
           title: 'Scholarship, laptop offers, modern labs, and Wi-Fi',
           lead: 'Students choose Dunamis for practical teaching, scholarship support, laptop offers for eligible early registrations, day and evening sessions, equipped multimedia rooms, biomedical laboratories, campus Wi-Fi, and lecturers focused on professional success.',
@@ -70,6 +73,7 @@ const Home = () => {
       slides: [
         {
           image: heroImages.university,
+          position: heroImagePositions.university,
           kicker: 'Dunamis University',
           title: "Dunamis, l'Universite Entrepreneuriale",
           lead: 'Une universite professionnelle pour une formation reconnue, une experience en entreprise, la mobilite internationale et la creation de valeur.',
@@ -80,6 +84,7 @@ const Home = () => {
         },
         {
           image: heroImages.apprenticeship,
+          position: heroImagePositions.apprenticeship,
           kicker: 'Alternance',
           title: '3 jours en cours, 3 jours en entreprise',
           lead: 'Dunamis relie les cours a la pratique: les etudiants apprennent en classe puis appliquent en entreprise pour developper confiance, discipline et experience professionnelle avant le diplome.',
@@ -89,7 +94,8 @@ const Home = () => {
           secondaryPath: '/contact',
         },
         {
-          image: localImages[9],
+          image: localImages[10],
+          position: heroImagePositions.training,
           kicker: 'Pourquoi nous choisir',
           title: 'Bourse, laptop, salles modernes, labo et Wi-Fi',
           lead: 'Dunamis offre un cadre pratique avec bourse, offre laptop pour inscriptions eligibles, cours du jour et du soir, salles multimedia, laboratoire biomedical, Wi-Fi et enseignants orientes vers la reussite professionnelle.',
@@ -135,6 +141,7 @@ const Home = () => {
             src={item.image || heroImages.home}
             alt=""
             className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-out ${activeSlide === index ? 'scale-100 opacity-100' : 'scale-105 opacity-0'}`}
+            style={{ objectPosition: item.position || heroImagePositions.home }}
           />
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/35 to-slate-950/5" />

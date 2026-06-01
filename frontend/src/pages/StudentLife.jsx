@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Camera, Film, Users, Trophy } from 'lucide-react';
+import { facebookVideos, localImages } from '../data/siteContent';
 
 const StudentLife = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -10,25 +11,17 @@ const StudentLife = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const reels = [
-    "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1562989268098472/",
-    "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/26709767955282658/",
-    "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1348351483785766/",
-    "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1315229193272222/",
-    "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1DF41tp1qs",
-    "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1BAFj5FScm"
-  ];
+  const galleryImages = [localImages[0], localImages[10], localImages[11], localImages[4], localImages[5], localImages[6], localImages[1], localImages[2]];
 
   return (
     <div className="pt-16 bg-white min-h-screen">
       <header className="bg-univGreen py-24 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 animate-zoom-in">
           <img 
-            src="/images/student-life-hero.jpg" 
+            src={localImages[6]} 
             alt="Student Life" 
             className="w-full h-full object-cover scale-110 will-change-transform" 
             style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-            onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2000'} 
           />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10 animate-fade-up">
@@ -47,7 +40,7 @@ const StudentLife = () => {
             <h2 className="text-3xl font-black text-slate-800 uppercase tracking-tight">Campus <span className="text-univGreen">Highlights</span></h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up">
-            {reels.map((url, i) => (
+            {facebookVideos.map((url, i) => (
               <div key={i} className="aspect-[9/16] bg-black rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
                 <iframe 
                   src={url} 
@@ -72,14 +65,12 @@ const StudentLife = () => {
             <h2 className="text-3xl font-black text-slate-800 uppercase tracking-tight">Life in <span className="text-univOrange">Pictures</span></h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-up">
-            {/* Assuming images are stored in public/images/ as campus-1.jpg etc. */}
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <div key={num} className={`rounded-3xl overflow-hidden bg-slate-100 ${num % 3 === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
+            {galleryImages.map((image, index) => (
+              <div key={image} className={`rounded-3xl overflow-hidden bg-slate-100 ${index % 3 === 2 ? 'md:col-span-2 md:row-span-2' : ''}`}>
                 <img 
-                  src={`/images/campus-${num}.jpg`} 
-                  alt={`Campus view ${num}`} 
+                  src={image} 
+                  alt={`Campus view ${index + 1}`} 
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                  onError={(e) => e.target.src = `https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=800&sig=${num}`}
                 />
               </div>
             ))}

@@ -9,6 +9,7 @@ const labelFor = (child, lang) => (lang?.startsWith('fr') ? child[1] : child[0])
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const lang = i18n.language?.startsWith('fr') ? 'fr' : 'en';
   const [open, setOpen] = useState(false);
   const [desktopMenu, setDesktopMenu] = useState(false);
 
@@ -46,8 +47,7 @@ const Navbar = () => {
               {desktopMenu ? <X size={17} /> : <Menu size={17} />} Menu
             </button>
             <div className="flex items-center gap-5 text-xs font-black uppercase tracking-widest">
-              <span className="text-slate-400">Infos</span>
-              <Link to="/news" className="text-slate-700 hover:text-univGreen">Brochure</Link>
+              <Link to="/news" className="text-slate-700 hover:text-univGreen">{lang === 'fr' ? 'Info continue' : 'News Now'}</Link>
               <LanguageSwitcher />
             </div>
           </div>
@@ -98,17 +98,17 @@ const Navbar = () => {
           <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr_1fr_1fr]">
             <div className="bg-slate-950 p-7 text-white">
               <p className="du-kicker">Dunamis</p>
-              <h2 className="mt-4 text-3xl font-black leading-tight">Find the right path by level, faculty, or ambition.</h2>
+              <h2 className="mt-4 text-3xl font-black leading-tight">{lang === 'fr' ? 'Trouvez le bon parcours selon votre niveau, votre filiere ou votre ambition.' : 'Find the right path by level, faculty, or ambition.'}</h2>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link to="/admission/apply" onClick={() => setDesktopMenu(false)} className="bg-univOrange px-4 py-3 text-xs font-black uppercase tracking-widest text-white">Apply</Link>
+                <Link to="/admission/apply" onClick={() => setDesktopMenu(false)} className="bg-univOrange px-4 py-3 text-xs font-black uppercase tracking-widest text-white">{lang === 'fr' ? 'Postuler' : 'Apply'}</Link>
                 <Link to="/contact" onClick={() => setDesktopMenu(false)} className="border border-white/30 px-4 py-3 text-xs font-black uppercase tracking-widest text-white hover:border-univOrange hover:text-univOrange">Contact</Link>
               </div>
               <div className="mt-8 border-t border-white/10 pt-6">
-                <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-slate-400">Portals</p>
+                <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-slate-400">{lang === 'fr' ? 'Portails' : 'Portals'}</p>
                 <div className="grid gap-2">
-                  <Link to="/login/staff" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">Administration Portal</Link>
-                  <Link to="/login/student" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">Student Portal</Link>
-                  <Link to="/library" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">Online Library</Link>
+                  <Link to="/login/staff" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Portail Administration' : 'Administration Portal'}</Link>
+                  <Link to="/login/student" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Portail Etudiant' : 'Student Portal'}</Link>
+                  <Link to="/library" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Bibliotheque en ligne' : 'Online Library'}</Link>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@ const Navbar = () => {
                       {labelFor(child, i18n.language)}
                     </Link>
                   ))}
-                  {!item.children && <p className="text-sm text-slate-500">{item.id === 'studentLife' ? 'Accommodation, clubs, sports, wellness, incubator' : 'Explore this section'}</p>}
+                  {!item.children && <p className="text-sm text-slate-500">{lang === 'fr' ? 'Explorer cette rubrique' : 'Explore this section'}</p>}
                 </div>
               </div>
             ))}
@@ -152,7 +152,7 @@ const Navbar = () => {
             <Link to="/admission/apply" onClick={() => setOpen(false)} className="col-span-2 bg-univOrange px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">Apply Online</Link>
           </div>
           <div className="mb-5 flex items-center justify-between border-y border-slate-200 py-3">
-            <span className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500"><FileText size={14} /> Infos</span>
+            <Link to="/news" onClick={() => setOpen(false)} className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen"><FileText size={14} /> {lang === 'fr' ? 'Info continue' : 'News Now'}</Link>
             <LanguageSwitcher />
           </div>
           <div className="mb-5 grid gap-2 bg-univGray p-4">
