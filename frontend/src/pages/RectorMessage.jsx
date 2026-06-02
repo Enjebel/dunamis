@@ -7,20 +7,20 @@ const RectorMessage = () => {
         <div className="space-y-6">
           <p className="du-kicker">The University</p>
           <h1 className="text-4xl font-black leading-tight text-slate-950 md:text-6xl">
-            A Message from <span className="text-univGreen">Our Leadership</span>
+            A Message from <span className="text-univGreen">the Director</span>
           </h1>
           <p className="text-lg leading-relaxed text-slate-600">
-            Welcome to Dunamis: Africa's Entrepreneurial University. Our institution was founded on the belief that academic learning must be inseparable from professional practice.
+            Welcome to Dunamis, the university of entrepreneurship that turns academic potential into concrete success.
           </p>
           <p className="text-lg leading-relaxed text-slate-600">
-            Our mission is to produce graduates who are not just job seekers, but job creators. Through our signature 3-day class / 3-day company rhythm, every student enters the workforce with practical experience and confidence.
+            Facing youth unemployment in Cameroon, where many graduates have diplomas but limited practical experience, we chose to break away from traditional teaching methods. Our mission is to train leaders and wealth creators with solid know-how acquired at the heart of the corporate world.
           </p>
           <p className="text-lg leading-relaxed text-slate-600">
-            Whether you join Engineering & Technology, Commerce, Finance & Management, or Health Sciences, you enter an ecosystem designed for high-impact careers.
+            At Dunamis, excellence is forged on the field. By choosing our apprenticeship model, you choose boldness, independence, and direct employability. Together, let us make your years of study the launchpad for your professional career.
           </p>
           <div className="flex items-center gap-4 border-t border-slate-100 pt-8">
             <div className="h-px w-12 bg-univOrange" />
-            <span className="font-black uppercase tracking-[0.2em] text-slate-800">Institutional Leadership</span>
+            <span className="font-black uppercase tracking-[0.2em] text-slate-800">Director of Dunamis</span>
           </div>
         </div>
         <div className="relative h-[500px] overflow-hidden bg-slate-200 shadow-2xl">
