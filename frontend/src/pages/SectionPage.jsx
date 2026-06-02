@@ -62,7 +62,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
                 <CheckCircle2 size={22} />
               </div>
               <h2 className="mb-3 text-xl font-black tracking-tight text-slate-950">{section.title}</h2>
-              <p className="leading-relaxed text-slate-600">{section.text}</p>
+              <p className="whitespace-pre-line leading-relaxed text-slate-600">{section.text}</p>
               <div className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-univOrange">0{index + 1}</div>
             </article>
           ))}
@@ -78,7 +78,6 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
               ['values-charter', ['Integrity in every academic act', 'Discipline and respect for commitments', 'Service, innovation, and community impact']],
               ['governance', ['Directorate and academic leadership', 'Quality assurance and program review', 'Industry advisory input for employability']],
               ['faculty', ['Practitioner lecturers and researchers', 'Professional mentors from companies', 'Student supervision and applied projects']],
-              ['accreditations', ['Programs aligned to recognized standards', 'Internal review of learning outcomes', 'Employability and professional relevance indicators']],
               ['campus-infrastructure', ['Modern classrooms and seminar rooms', 'Computer, digital, and applied science labs', 'Student services, incubation, and collaboration spaces']],
             ][focusIndex]?.[1]?.map((item) => (
               <div key={item} className="du-panel p-6 reveal-up">

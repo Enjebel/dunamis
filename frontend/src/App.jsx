@@ -24,8 +24,7 @@ const universityFocus = {
   'values-charter': 2,
   governance: 3,
   faculty: 4,
-  accreditations: 5,
-  'campus-infrastructure': 6,
+  'campus-infrastructure': 5,
 };
 
 const admissionFocus = {

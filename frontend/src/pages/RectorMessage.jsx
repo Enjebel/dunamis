@@ -10,13 +10,10 @@ const RectorMessage = () => {
             A Message from <span className="text-univGreen">the Director</span>
           </h1>
           <p className="text-lg leading-relaxed text-slate-600">
-            Welcome to Dunamis, the university of entrepreneurship that turns academic potential into concrete success.
+            "Welcome to Dunamis, the university of entrepreneurship that turns academic potential into concrete success. Facing the alarming rate of youth unemployment in Cameroon--where graduates are plenty but practical experience is scarce--we chose to break away from traditional teaching methods. Our mission is to train a new generation of leaders and wealth creators who are armed not with mere theories, but with solid, practical know-how acquired at the very heart of the corporate world.
           </p>
           <p className="text-lg leading-relaxed text-slate-600">
-            Facing youth unemployment in Cameroon, where many graduates have diplomas but limited practical experience, we chose to break away from traditional teaching methods. Our mission is to train leaders and wealth creators with solid know-how acquired at the heart of the corporate world.
-          </p>
-          <p className="text-lg leading-relaxed text-slate-600">
-            At Dunamis, excellence is forged on the field. By choosing our apprenticeship model, you choose boldness, independence, and direct employability. Together, let us make your years of study the launchpad for your professional career.
+            At Dunamis, we firmly believe that excellence is forged on the field. By choosing our unique apprenticeship model, you are choosing boldness, independence, and direct employment. Together, let us make your two years of study the ultimate launchpad for your professional career."
           </p>
           <div className="flex items-center gap-4 border-t border-slate-100 pt-8">
             <div className="h-px w-12 bg-univOrange" />
