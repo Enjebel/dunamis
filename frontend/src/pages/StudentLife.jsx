@@ -11,7 +11,7 @@ const StudentLife = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const galleryImages = [localImages[0], localImages[10], localImages[11], localImages[4], localImages[5], localImages[6], localImages[1], localImages[2]];
+  const galleryImages = [localImages[25], localImages[22], localImages[24], localImages[0], localImages[10], localImages[11], localImages[4], localImages[6]];
 
   return (
     <div className="pt-16 bg-white min-h-screen">

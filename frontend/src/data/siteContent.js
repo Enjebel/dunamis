@@ -20,6 +20,11 @@ export const localImages = [
   '/images/WhatsApp Image 2026-06-01 at 12.50.39 PM.jpeg',
   '/images/WhatsApp Image 2026-06-01 at 2.25.59 PM.jpeg',
   '/images/WhatsApp Image 2026-06-01 at 3.16.27 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-02 at 2.43.11 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-02 at 2.43.12 PM.jpeg',
+  '/images/WhatsApp Image 2026-06-02 at 2.43.12 PM (1).jpeg',
+  '/images/WhatsApp Image 2026-06-02 at 2.43.12 PM (2).jpeg',
+  '/images/WhatsApp Image 2026-06-02 at 2.43.13 PM.jpeg',
 ];
 
 export const heroImages = {
@@ -27,11 +32,11 @@ export const heroImages = {
   training: localImages[11],
   university: localImages[0],
   admission: localImages[0],
-  apprenticeship: localImages[6],
+  apprenticeship: localImages[25],
   international: localImages[5],
   studentLife: localImages[6],
   research: localImages[10],
-  businesses: localImages[4],
+  businesses: localImages[24],
   news: localImages[5],
   contact: localImages[0],
 };
