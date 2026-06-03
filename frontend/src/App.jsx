@@ -28,18 +28,15 @@ const universityFocus = {
 };
 
 const admissionFocus = {
-  'how-to-apply': 0,
   requirements: 0,
-  'tuition-fees': 2,
-  scholarships: 1,
-  calendar: 3,
+  benefits: 1,
+  'class-sessions': 2,
 };
 
 const studentLifeFocus = {
   clubs: 0,
-  sports: 1,
-  wellness: 2,
-  incubator: 3,
+  placements: 1,
+  bureau: 2,
 };
 
 function App() {

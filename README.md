@@ -1,113 +1,146 @@
-# Dunamis University Website
+# Dunamis University Website & Portal System
 
-## University System Direction
+This project contains the public Dunamis University website and a dynamic university management system with administration, student, news, timetable, transcript, lecture-hour, and library portals.
 
-The public website is being maintained as the front office while the project grows into a dynamic university management system.
+## Main Documentation
 
-Current portal foundation:
+Read the full plain-language system documentation here:
 
-- `/admin` - administration dashboard for academic operations, lecture-hour tracking, transcript tools, and system stats.
-- `/admin/news` - news, daily activities, event, and blog publishing workspace.
-- `/student` - student dashboard with semester results, credits passed, and failed/resit courses.
-- `/library` - online school library for uploaded books, PDFs, and borrowable resources.
+```text
+docs/SYSTEM_DOCUMENTATION.md
+docs/Dunamis-System-Documentation.pdf
+```
 
-Backend API foundation:
+It explains:
 
-- `GET /api/system/overview`
-- `GET /api/program-sources`
-- `GET /api/programs`
-- `POST /api/programs`
-- `GET /api/students`
-- `POST /api/students`
-- `GET /api/students/:matricule/dashboard`
-- `GET /api/students/:matricule/transcript`
-- `GET /api/lecture-hours`
-- `POST /api/lecture-hours`
-- `GET /api/news-posts`
-- `POST /api/news-posts`
-- `GET /api/library`
-- `POST /api/library`
+- System architecture
+- Frontend structure
+- Backend logic
+- MongoDB schemas
+- Database relationships
+- Authentication and roles
+- Student registration and matricule generation
+- Result import and transcript logic
+- Lecture-hour validation
+- Library workflow
+- News publishing with multiple media files
+- User guide for admins, students, librarians, and visitors
+- Deployment notes
 
-The `programs/` folder is treated as the official source library for BTS, HND, and transcript reference documents. The next major step is extracting course tables from the PDF/DOC/DOCX files into structured `Program.courses[]` records with course code, title, credit, semester, year, category, and ministry source.
+To regenerate the PDF after documentation changes:
 
-Planned next phases:
-
-- Auth and roles: super admin, academic admin, lecturer, librarian, student. Backend routes are in place at `/api/auth/*`; create the first admin with `POST /api/auth/bootstrap-admin`.
-- Course import workflow from the `programs/` folder. Use `/api/program-sources`, `/api/program-sources/extract`, and `/api/programs/import-from-source`.
-- Transcript print templates by program/cycle with one common Dunamis design. Transcript data is available at `/api/students/:matricule/transcript`.
-- Result import, validation, semester/year GPA, failed course and resit tracking. Result import is available at `POST /api/students/:matricule/results`.
-- Lecture-hour validation by academic administration. Use `/api/lecture-hours` and `PATCH /api/lecture-hours/:id/validate`.
-- Library upload/borrow/read-online workflow. Use `/api/library`, `POST /api/library` with a file upload, and `/api/library/:id/borrow`.
-
-## Project Description
-
-This repository contains the codebase for the official Dunamis University website. The project is designed to be a professional, dynamic, and user-friendly platform that showcases the university's mission, academic offerings, campus life, and institutional values. It aims to empower prospective students, faculty, and the wider community with essential information about Dunamis University.
-
-The website features a modern, responsive design built with a React frontend and a Node.js/Express backend, utilizing Tailwind CSS for styling. Key sections include:
-
--   **Home**: A welcoming entry point with a hero section, key features, and strategic vision.
--   **The University**: Detailed sub-pages covering:
-    -   **Values & Charter**: Outlining the university's core principles and foundational commitments.
-    -   **Faculty**: Introducing the esteemed academic staff and departmental structure.
-    -   **Accreditations**: Showcasing official recognitions and affiliations.
-    -   **Campus & Infrastructure**: Highlighting the facilities and learning environment.
--   **Academics**: (Planned/Future expansion) Information on courses, programs, and faculties.
--   **Admissions**: (Planned/Future expansion) Details on the application process.
--   **Contact**: (Planned/Future expansion) Ways to get in touch with the university.
+```bash
+node docs/generate-system-documentation-pdf.mjs
+```
 
 ## Tech Stack
 
-### Frontend
--   **React**: A JavaScript library for building user interfaces.
--   **React Router DOM**: For declarative routing in React applications.
--   **Axios**: Promise-based HTTP client for making API requests.
--   **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
--   **Lucide React**: A collection of beautiful open-source icons.
--   **Vite**: A fast build tool for modern web projects.
+Frontend:
+
+- React
+- Vite
+- React Router
+- Tailwind CSS
+- i18next EN/FR language switching
+
+Backend:
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT authentication
+- multer file uploads
+
+## Local Setup
 
 ### Backend
--   **Node.js**: JavaScript runtime environment.
--   **Express.js**: A fast, unopinionated, minimalist web framework for Node.js.
--   **CORS**: Middleware to enable Cross-Origin Resource Sharing.
-
-### Data Storage
--   Currently, page content is managed directly within the `contentController.js` file for simplicity and rapid prototyping.
--   **Future Enhancement**: The architecture is designed to easily integrate with a database like MongoDB (using Mongoose) for more robust content management.
-
-## Setup and Installation
-
-### Prerequisites
-
--   Node.js (LTS version recommended)
--   npm (Node Package Manager) or Yarn
-
-### 1. Backend Setup
-
-Navigate to the `backend` directory, install dependencies, and start the server.
 
 ```bash
 cd backend
 npm install
-npm start   # or node server.js (if your start script is not defined)
+node server.js
 ```
 
-### 2. Frontend Setup
+The backend reads configuration from `backend/.env`.
+
+Typical values:
+
+```env
+PORT=5001
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secure_secret
+```
+
+### Frontend
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-## Maintenance & Upgrades
-If you are maintaining this project:
-1. **Content:** Page data is served by `backend/controllers/contentController.js`. Modify the `siteData` object to update text.
-2. **Styles:** All styling is handled via Tailwind CSS classes in the JSX files.
-3. **Layout:** The Hero sections use `pt-32` padding to stay visible beneath the fixed navigation bar.
-4. **Components:** Use the `InstitutionalInfoBlock` component for consistent information boxes across new pages.
+Optional frontend environment value:
 
-## Deployment
-- **Frontend:** Run `npm run build` and deploy the `dist` folder.
-- **Backend:** Deploy the Node application to a service like Heroku or Render.
+```env
+VITE_API_URL=http://localhost:5001/api
+```
 
----
-*Created for Dunamis University - Empowering Innovation & Excellence.*
+## Build
+
+Frontend production build:
+
+```bash
+cd frontend
+npm run build
+```
+
+Backend syntax checks:
+
+```bash
+node --check backend\routes\portalRoutes.js
+node --check backend\models\NewsPost.js
+```
+
+## Important Routes
+
+Public site:
+
+- `/`
+- `/university`
+- `/training`
+- `/admission`
+- `/apprenticeship`
+- `/international`
+- `/student-life`
+- `/businesses`
+- `/news`
+- `/contact`
+
+Portals:
+
+- `/login/staff`
+- `/login/student`
+- `/admin`
+- `/admin/academics`
+- `/admin/lectures`
+- `/admin/news`
+- `/admin/timetable`
+- `/student`
+- `/library`
+
+## Deployment Notes
+
+Frontend can be hosted on Vercel using:
+
+- Root directory: `frontend`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+Backend can be hosted on Render using:
+
+- Root directory: `backend`
+- Build command: `npm install`
+- Start command: `node server.js`
+
+Set `VITE_API_URL` in the frontend deployment to the deployed backend API URL.

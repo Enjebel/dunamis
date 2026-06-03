@@ -52,6 +52,7 @@ public/uploads/
 
 # Ignore heavy academic program documents
 programs/
+docs/
 
 # Package manager caches
 .npm/
