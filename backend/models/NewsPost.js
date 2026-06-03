@@ -10,6 +10,13 @@ const NewsPostSchema = new mongoose.Schema(
     coverImage: { type: String },
     mediaUrl: { type: String },
     mediaType: { type: String, enum: ['image', 'video', 'none'], default: 'none' },
+    media: [
+      {
+        url: { type: String, required: true },
+        type: { type: String, enum: ['image', 'video'], required: true },
+        originalName: { type: String },
+      },
+    ],
     author: { type: String, default: 'Dunamis Administration' },
     published: { type: Boolean, default: false },
     publishedAt: { type: Date },

@@ -529,16 +529,31 @@ router.get('/news-posts', asyncRoute(async (req, res) => {
   res.json(posts);
 }));
 
-router.post('/news-posts', requireAuth, requireRole('super_admin', 'academic_admin'), upload.single('media'), asyncRoute(async (req, res) => {
-  const fileUrl = req.file ? `/uploads/news/${req.file.filename}` : req.body.mediaUrl;
-  const uploadedType = req.file?.mimetype?.startsWith('video/') ? 'video' : req.file?.mimetype?.startsWith('image/') ? 'image' : undefined;
-  const mediaType = uploadedType || req.body.mediaType || (fileUrl ? 'image' : 'none');
+router.post('/news-posts', requireAuth, requireRole('super_admin', 'academic_admin'), upload.array('media', 12), asyncRoute(async (req, res) => {
+  const uploadedMedia = (req.files || [])
+    .map((file) => {
+      const type = file.mimetype?.startsWith('video/') ? 'video' : file.mimetype?.startsWith('image/') ? 'image' : null;
+      if (!type) return null;
+      return {
+        url: `/uploads/news/${file.filename}`,
+        type,
+        originalName: file.originalname,
+      };
+    })
+    .filter(Boolean);
+  const manualMediaUrl = !uploadedMedia.length && req.body.mediaUrl ? req.body.mediaUrl : undefined;
+  const manualMediaType = manualMediaUrl ? req.body.mediaType || 'image' : undefined;
+  const media = uploadedMedia.length ? uploadedMedia : manualMediaUrl ? [{ url: manualMediaUrl, type: manualMediaType }] : [];
+  const primaryMedia = media[0];
+  const fileUrl = primaryMedia?.url;
+  const mediaType = primaryMedia?.type || 'none';
   const payload = {
     ...req.body,
     slug: req.body.slug || req.body.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
     coverImage: req.body.coverImage || (mediaType === 'image' ? fileUrl : undefined),
     mediaUrl: fileUrl,
     mediaType,
+    media,
     published: req.body.published === true || req.body.published === 'true',
     publishedAt: req.body.published === true || req.body.published === 'true' ? new Date() : undefined,
   };

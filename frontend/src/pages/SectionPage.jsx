@@ -6,6 +6,23 @@ import { contactInfo, facebookVideos, heroImagePositions, heroImages, localImage
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 
+const universityDetailBullets = {
+  en: [
+    ['mission-vision', ['Mission: train creators and leaders', 'Vision: a reference entrepreneurial university', 'Method: practice, mentorship, and industry projects']],
+    ['values-charter', ['Integrity in every academic act', 'Discipline and respect for commitments', 'Service, innovation, and community impact']],
+    ['governance', ['Directorate and academic leadership', 'Quality assurance and program review', 'Industry advisory input for employability']],
+    ['faculty', ['Practitioner lecturers and researchers', 'Professional mentors from companies', 'Student supervision and applied projects']],
+    ['campus-infrastructure', ['Modern classrooms and seminar rooms', 'Computer, digital, and applied science labs', 'Student services, incubation, and collaboration spaces']],
+  ],
+  fr: [
+    ['mission-vision', ['Mission: former des createurs et des leaders', 'Vision: une universite entrepreneuriale de reference', 'Methode: pratique, mentorat et projets avec les entreprises']],
+    ['values-charter', ['Integrite dans chaque acte academique', 'Discipline et respect des engagements', 'Service, innovation et impact communautaire']],
+    ['governance', ['Direction et leadership academique', 'Assurance qualite et revue des programmes', 'Contribution des entreprises pour l employabilite']],
+    ['faculty', ['Enseignants praticiens et chercheurs', 'Mentors professionnels issus des entreprises', 'Encadrement et projets appliques pour les etudiants']],
+    ['campus-infrastructure', ['Salles modernes et espaces de seminaire', 'Laboratoires informatiques, numeriques et scientifiques', 'Services etudiants, incubation et espaces collaboratifs']],
+  ],
+};
+
 const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
   const { t, i18n } = useTranslation();
   const lang = getLang(i18n.language);
@@ -73,13 +90,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
       {pageKey === 'university' && Number.isInteger(focusIndex) && (
         <section className="bg-univGray py-16">
           <div className="du-section grid gap-6 md:grid-cols-3">
-            {[
-              ['mission-vision', ['Mission: train creators and leaders', 'Vision: a reference entrepreneurial university', 'Method: practice, mentorship, and industry projects']],
-              ['values-charter', ['Integrity in every academic act', 'Discipline and respect for commitments', 'Service, innovation, and community impact']],
-              ['governance', ['Directorate and academic leadership', 'Quality assurance and program review', 'Industry advisory input for employability']],
-              ['faculty', ['Practitioner lecturers and researchers', 'Professional mentors from companies', 'Student supervision and applied projects']],
-              ['campus-infrastructure', ['Modern classrooms and seminar rooms', 'Computer, digital, and applied science labs', 'Student services, incubation, and collaboration spaces']],
-            ][focusIndex]?.[1]?.map((item) => (
+            {universityDetailBullets[lang][focusIndex]?.[1]?.map((item) => (
               <div key={item} className="du-panel p-6 reveal-up">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-univOrange">Dunamis</p>
                 <h3 className="mt-3 text-xl font-black text-slate-950">{item}</h3>
@@ -95,10 +106,10 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
             <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.3em] text-univOrange">Facebook</p>
-                <h2 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">Campus Highlights</h2>
+                <h2 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">{lang === 'fr' ? 'Moments forts du campus' : 'Campus Highlights'}</h2>
               </div>
               <a href="https://www.facebook.com/people/Dunamis-The-Entrepreneurial-University/61578043154713/" target="_blank" rel="noreferrer" className="text-sm font-black uppercase tracking-widest text-univOrange hover:text-univGreen">
-                Facebook page
+                {lang === 'fr' ? 'Page Facebook' : 'Facebook page'}
               </a>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -126,7 +137,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
           <div className="space-y-4">
             {[
               [MapPin, 'Campus', lang === 'fr' ? 'Campus Dunamis, Cameroun' : 'Dunamis Campus, Cameroon'],
-              [Phone, 'Phone', contactInfo.phone],
+              [Phone, lang === 'fr' ? 'Telephone' : 'Phone', contactInfo.phone],
               [MessageCircle, 'WhatsApp', contactInfo.whatsapp],
               [Mail, 'Email', contactInfo.email],
             ].map(([Icon, label, value]) => (
