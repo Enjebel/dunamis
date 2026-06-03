@@ -275,26 +275,26 @@ export const pages = {
       title: 'Start your Dunamis application',
       intro: 'Prepare your admission file and contact the admissions team for program placement, scholarship information, and registration support.',
       sections: [
-        { title: 'Admission Requirements', text: `- GCE A-Level / BACC Certificate: 01 clear photocopy of your diploma or official transcript.
-- 01 photocopy of your National Identity Card (CNI) and 01 photocopy of your Birth Certificate.
-- Office Supplies: 02 reams of printing paper for academic assignments and exams.
-- 04 recent passport-size photos (4x4 format).
-- 01 dozen (12 rolls) of toilet paper rolls.
-- 10,000 FCFA for the mandatory on-campus medical check-up.
-- 40,000 FCFA to officially validate your admission.` },
-        { title: 'Student Benefits', text: `- Work-Study Programme (Alternance): A unique learning model balancing academic theory and intensive corporate experience.
-- Free Tablet-Computer: A complimentary tech device gifted to every single student upon official registration.
-- Free Campus Wi-Fi: High-speed internet access available everywhere on campus for your research needs.
-- Air-Conditioned Classrooms: A modern, temperature-controlled learning environment providing premium study comfort.
-- Job Placement Service: A dedicated career department focused on securing your immediate employment after graduation.
-- Study Abroad Assistance: Full guidance and support for your international study and relocation projects.` },
-        { title: 'Class Sessions', text: `- Expert Faculty: Modules delivered by highly qualified industry experts and top-tier academic professors.
-- 2-Hour Teaching Sessions: A dynamic class format designed to maximize student focus and information retention.
-- Theoretical Campus Classes (3 Days): Theoretical and lecture-based classes grouped over 3 consecutive days per week.
-- Practical Company Placement (3 Days): Deep professional immersion on the field for 3 consecutive days each week.
-- Projected Lectures: Modernized classroom teaching utilizing digital visual aids and interactive projectors.
-- Digital Course Materials Included: Systematic delivery of a digital copy of the course by the instructor after every class.
-- Instant Access on Free PC: Seamless review of digital courses using the tablet-computer gifted by Dunamis.` },
+        { title: 'Admission Requirements', text: `1. GCE A-Level / BACC Certificate: 01 clear photocopy of your diploma or official transcript.
+2. 01 photocopy of your National Identity Card (CNI) and 01 photocopy of your Birth Certificate.
+3. Office Supplies: 02 reams of printing paper for academic assignments and exams.
+4. 04 recent passport-size photos (4x4 format).
+5. 01 dozen (12 rolls) of toilet paper rolls.
+6. 10,000 FCFA for the mandatory on-campus medical check-up.
+7. 40,000 FCFA to officially validate your admission.` },
+        { title: 'Student Benefits', text: `1. Work-Study Programme (Alternance): A unique learning model balancing academic theory and intensive corporate experience.
+2. Free Tablet-Computer: A complimentary tech device gifted to every single student upon official registration.
+3. Free Campus Wi-Fi: High-speed internet access available everywhere on campus for your research needs.
+4. Air-Conditioned Classrooms: A modern, temperature-controlled learning environment providing premium study comfort.
+5. Job Placement Service: A dedicated career department focused on securing your immediate employment after graduation.
+6. Study Abroad Assistance: Full guidance and support for your international study and relocation projects.` },
+        { title: 'Class Sessions', text: `1. Expert Faculty: Modules delivered by highly qualified industry experts and top-tier academic professors.
+2. 2-Hour Teaching Sessions: A dynamic class format designed to maximize student focus and information retention.
+3. Theoretical Campus Classes (3 Days): Theoretical and lecture-based classes grouped over 3 consecutive days per week.
+4. Practical Company Placement (3 Days): Deep professional immersion on the field for 3 consecutive days each week.
+5. Projected Lectures: Modernized classroom teaching utilizing digital visual aids and interactive projectors.
+6. Digital Course Materials Included: Systematic delivery of a digital copy of the course by the instructor after every class.
+7. Instant Access on Free PC: Seamless review of digital courses using the tablet-computer gifted by Dunamis.` },
       ],
     },
     fr: {
@@ -302,26 +302,26 @@ export const pages = {
       title: 'Demarrez votre candidature a Dunamis',
       intro: 'Preparez votre dossier et contactez les admissions pour le choix du programme, les bourses et l inscription.',
       sections: [
-        { title: 'Conditions d Admission', text: `- Certificat GCE A-Level / BACC: 01 photocopie claire de votre diplome ou releve officiel.
-- 01 photocopie de votre Carte Nationale d Identite (CNI) et 01 photocopie de votre acte de naissance.
-- Fournitures de bureau: 02 rames de papier pour les devoirs academiques et les examens.
-- 04 photos passeport recentes format 4x4.
-- 01 douzaine (12 rouleaux) de papier hygienique.
-- 10 000 FCFA pour la visite medicale obligatoire sur le campus.
-- 40 000 FCFA pour valider officiellement votre admission.` },
-        { title: 'Avantages Etudiants', text: `- Programme Travail-Etudes (Alternance): un modele unique qui equilibre la theorie academique et l experience intensive en entreprise.
-- Tablette-ordinateur gratuite: un appareil technologique offert a chaque etudiant apres son inscription officielle.
-- Wi-Fi gratuit sur le campus: acces internet haut debit disponible partout sur le campus pour vos recherches.
-- Salles climatisees: un environnement d apprentissage moderne, confortable et controle en temperature.
-- Service de placement professionnel: un departement carriere dedie a l obtention rapide d un emploi apres la formation.
-- Assistance pour les etudes a l etranger: accompagnement complet pour vos projets d etudes internationales et de relocalisation.` },
-        { title: 'Sessions de Cours', text: `- Corps enseignant expert: modules dispenses par des experts de l industrie hautement qualifies et des professeurs academiques de haut niveau.
-- Sessions d enseignement de 2 heures: un format dynamique concu pour maximiser la concentration et la retention des informations.
-- Cours theoriques sur le campus (3 jours): cours theoriques et magistraux regroupes sur 3 jours consecutifs par semaine.
-- Placement pratique en entreprise (3 jours): immersion professionnelle profonde sur le terrain pendant 3 jours consecutifs chaque semaine.
-- Cours projetes: enseignement modernise utilisant des supports visuels numeriques et des projecteurs interactifs.
-- Supports de cours numeriques inclus: remise systematique d une copie numerique du cours par l enseignant apres chaque classe.
-- Acces instantane sur PC gratuit: revision fluide des cours numeriques grace a la tablette-ordinateur offerte par Dunamis.` },
+        { title: 'Conditions d Admission', text: `1. Certificat GCE A-Level / BACC: 01 photocopie claire de votre diplome ou releve officiel.
+2. 01 photocopie de votre Carte Nationale d Identite (CNI) et 01 photocopie de votre acte de naissance.
+3. Fournitures de bureau: 02 rames de papier pour les devoirs academiques et les examens.
+4. 04 photos passeport recentes format 4x4.
+5. 01 douzaine (12 rouleaux) de papier hygienique.
+6. 10 000 FCFA pour la visite medicale obligatoire sur le campus.
+7. 40 000 FCFA pour valider officiellement votre admission.` },
+        { title: 'Avantages Etudiants', text: `1. Programme Travail-Etudes (Alternance): un modele unique qui equilibre la theorie academique et l experience intensive en entreprise.
+2. Tablette-ordinateur gratuite: un appareil technologique offert a chaque etudiant apres son inscription officielle.
+3. Wi-Fi gratuit sur le campus: acces internet haut debit disponible partout sur le campus pour vos recherches.
+4. Salles climatisees: un environnement d apprentissage moderne, confortable et controle en temperature.
+5. Service de placement professionnel: un departement carriere dedie a l obtention rapide d un emploi apres la formation.
+6. Assistance pour les etudes a l etranger: accompagnement complet pour vos projets d etudes internationales et de relocalisation.` },
+        { title: 'Sessions de Cours', text: `1. Corps enseignant expert: modules dispenses par des experts de l industrie hautement qualifies et des professeurs academiques de haut niveau.
+2. Sessions d enseignement de 2 heures: un format dynamique concu pour maximiser la concentration et la retention des informations.
+3. Cours theoriques sur le campus (3 jours): cours theoriques et magistraux regroupes sur 3 jours consecutifs par semaine.
+4. Placement pratique en entreprise (3 jours): immersion professionnelle profonde sur le terrain pendant 3 jours consecutifs chaque semaine.
+5. Cours projetes: enseignement modernise utilisant des supports visuels numeriques et des projecteurs interactifs.
+6. Supports de cours numeriques inclus: remise systematique d une copie numerique du cours par l enseignant apres chaque classe.
+7. Acces instantane sur PC gratuit: revision fluide des cours numeriques grace a la tablette-ordinateur offerte par Dunamis.` },
       ],
     },
   },
@@ -384,31 +384,31 @@ export const pages = {
       title: 'A campus built for growth beyond the classroom',
       intro: 'Students find community, wellbeing, creativity, sports, and entrepreneurial support at Dunamis.',
       sections: [
-        { title: 'Club Activities', text: `- Music Club: A creative space for musical expression, rehearsals, and songwriting for all music enthusiasts.
-- Fashion Design Club: A design and styling workshop focused on creating tomorrow's fashion trends.
-- Digital Marketing Club: Hands-on immersion into influencer strategies, community management, and web communication.
-- Technology Club: An innovation hub featuring four specialized engineering and technical sub-sections:
-  - IT & Computer Science: Software development, coding, and system maintenance.
-  - Civil Engineering: Practical introduction to building, construction, and infrastructure projects.
-  - Electrical Engineering: Practical handling of power systems and automated electronics.
-  - Geographical & Topographical Engineering: Land surveying, digital mapping, and spatial management.
-- Sports Club: Physical training designed to boost health and team spirit across three core disciplines:
-  - Football: Competitive tournaments and friendly inter-class matches.
-  - Handball: Training focused on agility, speed, and collective team strategy.
-  - Fitness: Dynamic workout and wellness sessions to stay in top shape.
-- Health Club: First-aid training, health awareness campaigns, and wellness promotion across the campus.` },
-        { title: 'Job Placements', text: `- Post-Graduation Support: Dunamis actively guides every graduate in their job search through our corporate network.
-- VIP Tracking for Top Students: Closer, prioritized career coaching is exclusively reserved for the top graduates of each class.
-- Partner Company Network: Privileged access to exclusive job offers from leading corporate companies in the region.
-- Direct Hiring at Acreap: Direct recruitment opportunities within Acreap, a major company owned by Dunamis.
-- Direct Hiring at the Health Centre: Long-term employment opportunities for our medical graduates within our own modern clinic.` },
-        { title: 'Student Bureau (S.B.)', text: `- Overall Well-being: Managing campus life, organizing major events, and strengthening student solidarity.
-- Social & Community Engagement: Practical learning of teamwork, civic responsibility, and community values.
-- Professional Immersion: Managing real-world projects and conducting professional meetings just like in a corporate environment.
-- Hierarchical Structure: Learning discipline, accountability, and respect for organizational authority.
-- Management & Leadership Initiation: Hands-on experience in team coordination, conflict resolution, and leadership development.
+        { title: 'Club Activities', text: `1. Music Club: A creative space for musical expression, rehearsals, and songwriting for all music enthusiasts.
+2. Fashion Design Club: A design and styling workshop focused on creating tomorrow's fashion trends.
+3. Digital Marketing Club: Hands-on immersion into influencer strategies, community management, and web communication.
+4. Technology Club: An innovation hub featuring four specialized engineering and technical sub-sections:
+   4.1. IT & Computer Science: Software development, coding, and system maintenance.
+   4.2. Civil Engineering: Practical introduction to building, construction, and infrastructure projects.
+   4.3. Electrical Engineering: Practical handling of power systems and automated electronics.
+   4.4. Geographical & Topographical Engineering: Land surveying, digital mapping, and spatial management.
+5. Sports Club: Physical training designed to boost health and team spirit across three core disciplines:
+   5.1. Football: Competitive tournaments and friendly inter-class matches.
+   5.2. Handball: Training focused on agility, speed, and collective team strategy.
+   5.3. Fitness: Dynamic workout and wellness sessions to stay in top shape.
+6. Health Club: First-aid training, health awareness campaigns, and wellness promotion across the campus.` },
+        { title: 'Job Placements', text: `1. Post-Graduation Support: Dunamis actively guides every graduate in their job search through our corporate network.
+2. VIP Tracking for Top Students: Closer, prioritized career coaching is exclusively reserved for the top graduates of each class.
+3. Partner Company Network: Privileged access to exclusive job offers from leading corporate companies in the region.
+4. Direct Hiring at Acreap: Direct recruitment opportunities within Acreap, a major company owned by Dunamis.
+5. Direct Hiring at the Health Centre: Long-term employment opportunities for our medical graduates within our own modern clinic.` },
+        { title: 'Student Bureau (S.B.)', text: `1. Overall Well-being: Managing campus life, organizing major events, and strengthening student solidarity.
+2. Social & Community Engagement: Practical learning of teamwork, civic responsibility, and community values.
+3. Professional Immersion: Managing real-world projects and conducting professional meetings just like in a corporate environment.
+4. Hierarchical Structure: Learning discipline, accountability, and respect for organizational authority.
+5. Management & Leadership Initiation: Hands-on experience in team coordination, conflict resolution, and leadership development.
 
-- [Insert the list of elected student board members here]` },
+6. [Insert the list of elected student board members here]` },
       ],
     },
     fr: {
@@ -416,31 +416,31 @@ export const pages = {
       title: 'Un campus pour grandir au-dela des cours',
       intro: 'Les etudiants trouvent communaute, bien-etre, creativite, sport et accompagnement entrepreneurial.',
       sections: [
-        { title: 'Activites des Clubs', text: `- Club de Musique: un espace creatif pour l expression musicale, les repetitions et la composition pour tous les passionnes de musique.
-- Club de Design de Mode: un atelier de design et de stylisme axe sur la creation des tendances de mode de demain.
-- Club de Marketing Digital: immersion pratique dans les strategies d influence, le community management et la communication web.
-- Club de Technologie: un centre d innovation avec quatre sous-sections specialisees en ingenierie et technique:
-  - IT & Informatique: developpement logiciel, codage et maintenance des systemes.
-  - Genie Civil: introduction pratique au batiment, a la construction et aux projets d infrastructure.
-  - Genie Electrique: manipulation pratique des systemes d energie et de l electronique automatisee.
-  - Genie Geographique & Topographique: arpentage, cartographie numerique et gestion spatiale.
-- Club de Sport: entrainement physique concu pour renforcer la sante et l esprit d equipe autour de trois disciplines principales:
-  - Football: tournois competitifs et matchs amicaux interclasses.
-  - Handball: entrainement axe sur l agilite, la vitesse et la strategie collective.
-  - Fitness: seances dynamiques d exercice et de bien-etre pour rester en pleine forme.
-- Club de Sante: formation aux premiers secours, campagnes de sensibilisation sanitaire et promotion du bien-etre sur le campus.` },
-        { title: 'Placement Professionnel', text: `- Accompagnement apres diplomation: Dunamis guide activement chaque diplome dans sa recherche d emploi grace a notre reseau d entreprises.
-- Suivi VIP des meilleurs etudiants: un coaching carriere plus proche et prioritaire est exclusivement reserve aux meilleurs diplomes de chaque promotion.
-- Reseau d entreprises partenaires: acces privilegie a des offres d emploi exclusives provenant de grandes entreprises de la region.
-- Recrutement direct a Acreap: opportunites de recrutement direct au sein d Acreap, une grande entreprise appartenant a Dunamis.
-- Recrutement direct au Centre de Sante: opportunites d emploi a long terme pour nos diplomes medicaux au sein de notre propre clinique moderne.` },
-        { title: 'Bureau des Etudiants (B.E.)', text: `- Bien-etre general: gestion de la vie du campus, organisation des grands evenements et renforcement de la solidarite etudiante.
-- Engagement social et communautaire: apprentissage pratique du travail en equipe, de la responsabilite citoyenne et des valeurs communautaires.
-- Immersion professionnelle: gestion de projets reels et conduite de reunions professionnelles comme dans un environnement d entreprise.
-- Structure hierarchique: apprentissage de la discipline, de la responsabilite et du respect de l autorite organisationnelle.
-- Initiation au management et au leadership: experience pratique en coordination d equipe, resolution de conflits et developpement du leadership.
+        { title: 'Activites des Clubs', text: `1. Club de Musique: un espace creatif pour l expression musicale, les repetitions et la composition pour tous les passionnes de musique.
+2. Club de Design de Mode: un atelier de design et de stylisme axe sur la creation des tendances de mode de demain.
+3. Club de Marketing Digital: immersion pratique dans les strategies d influence, le community management et la communication web.
+4. Club de Technologie: un centre d innovation avec quatre sous-sections specialisees en ingenierie et technique:
+   4.1. IT & Informatique: developpement logiciel, codage et maintenance des systemes.
+   4.2. Genie Civil: introduction pratique au batiment, a la construction et aux projets d infrastructure.
+   4.3. Genie Electrique: manipulation pratique des systemes d energie et de l electronique automatisee.
+   4.4. Genie Geographique & Topographique: arpentage, cartographie numerique et gestion spatiale.
+5. Club de Sport: entrainement physique concu pour renforcer la sante et l esprit d equipe autour de trois disciplines principales:
+   5.1. Football: tournois competitifs et matchs amicaux interclasses.
+   5.2. Handball: entrainement axe sur l agilite, la vitesse et la strategie collective.
+   5.3. Fitness: seances dynamiques d exercice et de bien-etre pour rester en pleine forme.
+6. Club de Sante: formation aux premiers secours, campagnes de sensibilisation sanitaire et promotion du bien-etre sur le campus.` },
+        { title: 'Placement Professionnel', text: `1. Accompagnement apres diplomation: Dunamis guide activement chaque diplome dans sa recherche d emploi grace a notre reseau d entreprises.
+2. Suivi VIP des meilleurs etudiants: un coaching carriere plus proche et prioritaire est exclusivement reserve aux meilleurs diplomes de chaque promotion.
+3. Reseau d entreprises partenaires: acces privilegie a des offres d emploi exclusives provenant de grandes entreprises de la region.
+4. Recrutement direct a Acreap: opportunites de recrutement direct au sein d Acreap, une grande entreprise appartenant a Dunamis.
+5. Recrutement direct au Centre de Sante: opportunites d emploi a long terme pour nos diplomes medicaux au sein de notre propre clinique moderne.` },
+        { title: 'Bureau des Etudiants (B.E.)', text: `1. Bien-etre general: gestion de la vie du campus, organisation des grands evenements et renforcement de la solidarite etudiante.
+2. Engagement social et communautaire: apprentissage pratique du travail en equipe, de la responsabilite citoyenne et des valeurs communautaires.
+3. Immersion professionnelle: gestion de projets reels et conduite de reunions professionnelles comme dans un environnement d entreprise.
+4. Structure hierarchique: apprentissage de la discipline, de la responsabilite et du respect de l autorite organisationnelle.
+5. Initiation au management et au leadership: experience pratique en coordination d equipe, resolution de conflits et developpement du leadership.
 
-- [Inserer ici la liste des membres elus du bureau des etudiants]` },
+6. [Inserer ici la liste des membres elus du bureau des etudiants]` },
       ],
     },
   },
