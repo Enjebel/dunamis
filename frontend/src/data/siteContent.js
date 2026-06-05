@@ -34,7 +34,7 @@ export const heroImages = {
   admission: localImages[0],
   apprenticeship: localImages[25],
   international: localImages[5],
-  studentLife: localImages[6],
+  studentLife: localImages[22],
   research: localImages[10],
   businesses: localImages[24],
   news: localImages[5],
@@ -48,7 +48,7 @@ export const heroImagePositions = {
   training: 'center 50%',
   apprenticeship: 'center 45%',
   international: 'center 45%',
-  studentLife: 'center 42%',
+  studentLife: 'center 45%',
   research: 'center 45%',
   businesses: 'center 45%',
   news: 'center 45%',
@@ -378,7 +378,7 @@ export const pages = {
     },
   },
   studentLife: {
-    image: localImages[5],
+    image: localImages[22],
     en: {
       eyebrow: 'Student Life',
       title: 'A campus built for growth beyond the classroom',

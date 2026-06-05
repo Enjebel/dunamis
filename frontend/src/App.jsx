@@ -2,6 +2,7 @@ import React, { Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Seo from './components/Seo';
 import Home from './pages/Home';
 import Training from './pages/Training';
 import FacultyDetail from './pages/FacultyDetail';
@@ -58,6 +59,7 @@ function App() {
       }
     >
       <div className="flex min-h-screen flex-col bg-white font-sans text-slate-900 antialiased selection:bg-univOrange selection:text-white">
+        <Seo />
         {!isPortal && <Navbar />}
         <main className="flex-grow">
           <Routes>

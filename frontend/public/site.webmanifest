@@ -1,0 +1,21 @@
+{
+  "name": "Dunamis University Cameroon",
+  "short_name": "Dunamis",
+  "description": "The Entrepreneurial University in Cameroon.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#79b927",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

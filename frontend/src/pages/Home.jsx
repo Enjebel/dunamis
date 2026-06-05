@@ -194,17 +194,6 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="border-b border-slate-200">
-        <div className="du-section grid grid-cols-2 gap-px bg-slate-200 px-0 md:grid-cols-4">
-          {copy.stats.map(([value, label]) => (
-            <div key={label} className="bg-white px-4 py-9 text-center">
-              <div className="text-4xl font-black text-slate-950">{value}</div>
-              <div className="mt-2 text-xs font-black uppercase tracking-widest text-slate-500">{label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="du-section py-20">
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>

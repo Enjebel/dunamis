@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, FileText, Mail, Menu, MessageCircle, Phone, X } from 'lucide-react';
+import { ChevronDown, FileText, Mail, Menu, Phone, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { contactInfo, navigation } from '../data/siteContent';
 
@@ -22,14 +22,13 @@ const Navbar = () => {
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-8 text-[11px] font-bold uppercase tracking-widest">
           <div className="flex items-center gap-6 text-slate-300">
             <a href={contactInfo.phoneHref} className="flex items-center gap-2 hover:text-white"><Phone size={13} /> {contactInfo.phone}</a>
-            <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><MessageCircle size={13} /> WhatsApp</a>
           </div>
           <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 text-slate-300 hover:text-white"><Mail size={13} /> {contactInfo.email}</a>
         </div>
       </div>
 
       <div className="mx-auto hidden max-w-7xl items-stretch justify-between px-6 lg:flex xl:px-8">
-        <Link to="/" className="flex w-64 shrink-0 items-center gap-3 border-r border-slate-200 py-4 pr-5 xl:w-72 xl:gap-4 xl:pr-8">
+        <Link to="/" className="flex w-56 shrink-0 items-center gap-3 border-r border-slate-200 py-4 pr-4 xl:w-64 xl:gap-4 xl:pr-6">
           <img src="/logo.png" alt="Dunamis University" className="h-16 w-16 object-contain" />
           <div className="leading-tight">
             <span className="block text-xl font-black uppercase tracking-tight text-slate-950 xl:text-2xl">Dunamis</span>
@@ -52,14 +51,14 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 pl-5 xl:gap-6 xl:pl-7">
+          <div className="grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 pl-4 xl:gap-4 xl:pl-5">
             <nav className="flex min-w-0 items-center gap-0 overflow-hidden">
               {mainItems.map((item) => (
                 <div key={item.id} className="group relative">
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `flex items-center gap-1 whitespace-nowrap px-2 py-3 text-[10px] font-black uppercase tracking-widest transition-colors xl:px-3 xl:text-[12px] ${
+                      `flex items-center gap-1 whitespace-nowrap px-2 py-3 text-[10px] font-black uppercase tracking-wider transition-colors xl:px-2.5 xl:text-[11px] ${
                         isActive ? 'text-univOrange' : 'text-slate-800 hover:text-univGreen'
                       }`
                     }
@@ -81,13 +80,10 @@ const Navbar = () => {
               ))}
             </nav>
 
-            <div className="flex shrink-0 items-center justify-end gap-2">
-              <Link to="/admission/apply" className="whitespace-nowrap bg-univOrange px-4 py-4 text-[11px] font-black uppercase tracking-widest text-white hover:bg-univGreen xl:px-5 xl:text-xs">
+            <div className="flex shrink-0 items-center justify-end">
+              <Link to="/admission/apply" className="whitespace-nowrap bg-univOrange px-3 py-4 text-[10px] font-black uppercase tracking-wider text-white hover:bg-univGreen xl:px-4 xl:text-[11px]">
                 Apply Online
               </Link>
-              <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="hidden whitespace-nowrap border border-slate-200 px-4 py-4 text-[11px] font-black uppercase tracking-widest text-slate-900 hover:border-univGreen hover:text-univGreen xl:inline-flex xl:px-5 xl:text-xs">
-                WhatsApp
-              </a>
             </div>
           </div>
         </div>
@@ -148,8 +144,7 @@ const Navbar = () => {
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-5 lg:hidden">
           <div className="mb-5 grid grid-cols-2 gap-3">
             <a href={contactInfo.phoneHref} className="border border-slate-200 px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-slate-900">Call</a>
-            <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="bg-univGreen px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">WhatsApp</a>
-            <Link to="/admission/apply" onClick={() => setOpen(false)} className="col-span-2 bg-univOrange px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">Apply Online</Link>
+            <Link to="/admission/apply" onClick={() => setOpen(false)} className="bg-univOrange px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">Apply Online</Link>
           </div>
           <div className="mb-5 flex items-center justify-between border-y border-slate-200 py-3">
             <Link to="/news" onClick={() => setOpen(false)} className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen"><FileText size={14} /> {lang === 'fr' ? 'Info continue' : 'News Now'}</Link>
