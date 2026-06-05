@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, FileText, Mail, Menu, Phone, X } from 'lucide-react';
+import { ChevronDown, FileText, Mail, Menu, MessageCircle, Phone, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { contactInfo, navigation } from '../data/siteContent';
 
@@ -22,6 +22,7 @@ const Navbar = () => {
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-8 text-[11px] font-bold uppercase tracking-widest">
           <div className="flex items-center gap-6 text-slate-300">
             <a href={contactInfo.phoneHref} className="flex items-center gap-2 hover:text-white"><Phone size={13} /> {contactInfo.phone}</a>
+            <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><MessageCircle size={13} /> WhatsApp</a>
           </div>
           <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 text-slate-300 hover:text-white"><Mail size={13} /> {contactInfo.email}</a>
         </div>
