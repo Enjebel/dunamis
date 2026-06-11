@@ -16,12 +16,12 @@ const RectorMessage = () => {
       signature: 'Director of Dunamis',
     },
     fr: {
-      eyebrow: "L'Universite",
+      eyebrow: "L'Université",
       title: 'Message du',
       accent: 'Directeur',
       paragraphs: [
-        '"Bienvenue a Dunamis, l universite de l entrepreneuriat qui transforme le potentiel academique en succes concret. Face au taux alarmant de chomage des jeunes au Cameroun--ou les diplomes sont nombreux mais l experience pratique reste rare--nous avons choisi de rompre avec les methodes d enseignement traditionnelles. Notre mission est de former une nouvelle generation de leaders et de createurs de richesse, armes non pas de simples theories, mais d un savoir-faire solide et pratique acquis au coeur meme du monde de l entreprise.',
-        'A Dunamis, nous croyons fermement que l excellence se forge sur le terrain. En choisissant notre modele unique d alternance, vous choisissez l audace, l autonomie et l emploi direct. Ensemble, faisons de vos deux annees d etudes le tremplin ultime de votre carriere professionnelle."',
+        `"Bienvenue à Dunamis, l'université de l'entrepreneuriat qui transforme le potentiel académique en succès concret. Face au taux alarmant de chômage des jeunes au Cameroun, où les diplômés sont nombreux mais l'expérience pratique reste rare, nous avons choisi de rompre avec les méthodes d'enseignement traditionnelles. Notre mission est de former une nouvelle génération de leaders et de créateurs de richesse, armés non pas de simples théories, mais d'un savoir-faire solide et pratique acquis au cœur même du monde de l'entreprise.`,
+        `À Dunamis, nous croyons fermement que l'excellence se forge sur le terrain. En choisissant notre modèle unique d'alternance, vous choisissez l'audace, l'autonomie et l'emploi direct. Ensemble, faisons de vos deux années d'études le tremplin ultime de votre carrière professionnelle."`,
       ],
       signature: 'Directeur de Dunamis',
     },
@@ -35,17 +35,15 @@ const RectorMessage = () => {
           <h1 className="text-4xl font-black leading-tight text-slate-950 md:text-6xl">
             {copy.title} <span className="text-univGreen">{copy.accent}</span>
           </h1>
-          {copy.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="text-lg leading-relaxed text-slate-600">{paragraph}</p>
-          ))}
-          <div className="flex items-center gap-4 border-t border-slate-100 pt-8">
-            <div className="h-px w-12 bg-univOrange" />
-            <span className="font-black uppercase tracking-[0.2em] text-slate-800">{copy.signature}</span>
+          <div className="space-y-5 text-lg leading-relaxed text-slate-700">
+            {copy.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-univOrange">{copy.signature}</p>
         </div>
-        <div className="relative h-[500px] overflow-hidden bg-slate-200 shadow-2xl">
+        <div className="overflow-hidden border border-slate-200 bg-univGray">
           <img src="/images/Screenshot 2026-05-16 130959.png" alt="Dunamis leadership" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
         </div>
       </section>
     </div>

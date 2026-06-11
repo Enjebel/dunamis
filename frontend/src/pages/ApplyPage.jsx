@@ -23,15 +23,15 @@ const ApplyPage = () => {
     },
     fr: {
       eyebrow: 'Admission',
-      title: 'Postuler en ligne a Dunamis University',
-      intro: 'Envoyez vos premieres informations de candidature. L equipe admissions vous contactera pour confirmer programme, pieces, entretien et prochaines etapes.',
-      requirementsTitle: 'Conditions d admission',
-      requirements: ['Piece d identite ou passeport', 'Releves de notes', 'Diplome ou attestation', 'Photo passeport', 'Demande de candidature completee'],
-      documents: ['Bourse de 50 000 FCFA annoncee sur le flyer', 'Offre de laptop gratuit pour inscriptions eligibles', 'Cours du jour et du soir', 'Salles modernes, multimedia, laboratoire biomedical et Wi-Fi'],
+      title: 'Postuler en ligne à Dunamis University',
+      intro: "Envoyez vos premières informations de candidature. L'équipe admissions vous contactera pour confirmer le programme, les pièces, l'entretien et les prochaines étapes.",
+      requirementsTitle: "Conditions d'admission",
+      requirements: ["Pièce d'identité ou passeport", 'Relevés de notes', 'Diplôme ou attestation', 'Photo passeport', 'Demande de candidature complétée'],
+      documents: ['Bourse de 50 000 FCFA annoncée sur le flyer', 'Offre de laptop gratuit pour inscriptions éligibles', 'Cours du jour et du soir', 'Salles modernes, multimédia, laboratoire biomédical et Wi-Fi'],
       formTitle: 'Demande de candidature',
       submit: 'Envoyer sur WhatsApp',
       call: 'Appeler les admissions',
-      whatsapp: 'Ecrire sur WhatsApp',
+      whatsapp: 'Écrire sur WhatsApp',
     },
   }[lang];
 
@@ -106,13 +106,13 @@ const ApplyPage = () => {
             <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Adresse email du candidat' : 'Applicant email address'}</span><input name="email" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre adresse email' : 'Enter your email address'} type="email" /></label>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Numero telephone ou WhatsApp' : 'Phone or WhatsApp number'}</span><input name="phone" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre numero de telephone' : 'Enter your phone number'} required /></label>
-            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Cycle de formation souhaite' : 'Desired training cycle'}</span><select name="cycle" className="du-input py-4" defaultValue="" required>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Numéro de téléphone ou WhatsApp' : 'Phone or WhatsApp number'}</span><input name="phone" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre numéro de téléphone' : 'Enter your phone number'} required /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Cycle de formation souhaité' : 'Desired training cycle'}</span><select name="cycle" className="du-input py-4" defaultValue="" required>
               <option value="" disabled>{lang === 'fr' ? 'Choisir un cycle' : 'Choose a cycle'}</option>
               {trainingCycles.map((cycle) => <option key={cycle.slug}>{cycle[lang].title}</option>)}
             </select></label>
           </div>
-          <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Programme, niveau actuel et questions' : 'Program, current level, and questions'}</span><textarea name="message" className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Decrivez le programme souhaite, votre niveau actuel et vos questions' : 'Describe your desired program, current level, and questions'} /></label>
+          <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Programme, niveau actuel et questions' : 'Program, current level, and questions'}</span><textarea name="message" className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Décrivez le programme souhaité, votre niveau actuel et vos questions' : 'Describe your desired program, current level, and questions'} /></label>
           <button type="submit" className="inline-flex items-center justify-center gap-2 bg-univOrange px-6 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen">
             {copy.submit} <ArrowRight size={18} />
           </button>

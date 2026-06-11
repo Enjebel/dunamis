@@ -27,7 +27,7 @@ const FacultyDetail = () => {
       </section>
 
       <section className="du-section py-16">
-        <h2 className="mb-8 text-3xl font-black text-slate-950">{lang === 'fr' ? 'Programmes et specialisations' : 'Programs and specializations'}</h2>
+        <h2 className="mb-8 text-3xl font-black text-slate-950">{lang === 'fr' ? 'Programmes et spécialisations' : 'Programs and specializations'}</h2>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {faculty[lang].programs.map((program) => (
             <article key={program.title} className="du-panel p-7">

@@ -15,11 +15,11 @@ const universityDetailBullets = {
     ['campus-infrastructure', ['Modern classrooms and seminar rooms', 'Computer, digital, and applied science labs', 'Student services, incubation, and collaboration spaces']],
   ],
   fr: [
-    ['mission-vision', ['Mission: former des createurs et des leaders', 'Vision: une universite entrepreneuriale de reference', 'Methode: pratique, mentorat et projets avec les entreprises']],
-    ['values-charter', ['Integrite dans chaque acte academique', 'Discipline et respect des engagements', 'Service, innovation et impact communautaire']],
-    ['governance', ['Direction et leadership academique', 'Assurance qualite et revue des programmes', 'Contribution des entreprises pour l employabilite']],
-    ['faculty', ['Enseignants praticiens et chercheurs', 'Mentors professionnels issus des entreprises', 'Encadrement et projets appliques pour les etudiants']],
-    ['campus-infrastructure', ['Salles modernes et espaces de seminaire', 'Laboratoires informatiques, numeriques et scientifiques', 'Services etudiants, incubation et espaces collaboratifs']],
+    ['mission-vision', ['Mission: former des créateurs et des leaders', 'Vision: une université entrepreneuriale de reference', 'Methode: pratique, mentorat et projets avec les entreprises']],
+    ['values-charter', ['Intégrité dans chaque acte académique', 'Discipline et respect des engagements', 'Service, innovation et impact communautaire']],
+    ['governance', ['Direction et leadership académique', 'Assurance qualité et revue des programmes', 'Contribution des entreprises pour l employabilite']],
+    ['faculty', ['Enseignants praticiens et chercheurs', 'Mentors professionnels issus des entreprises', 'Encadrement et projets appliqués pour les étudiants']],
+    ['campus-infrastructure', ['Salles modernes et espaces de seminaire', 'Laboratoires informatiques, numériques et scientifiques', 'Services étudiants, incubation et espaces collaboratifs']],
   ],
 };
 
@@ -137,7 +137,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
           <div className="space-y-4">
             {[
               [MapPin, 'Campus', lang === 'fr' ? 'Campus Dunamis, Cameroun' : 'Dunamis Campus, Cameroon'],
-              [Phone, lang === 'fr' ? 'Telephone' : 'Phone', contactInfo.phone],
+              [Phone, lang === 'fr' ? 'Téléphone' : 'Phone', contactInfo.phone],
               [MessageCircle, 'WhatsApp', contactInfo.whatsapp],
               [Mail, 'Email', contactInfo.email],
             ].map(([Icon, label, value]) => (
@@ -153,7 +153,7 @@ const SectionPage = ({ pageKey, focusTitle, focusIndex }) => {
           <form onSubmit={handleContactSubmit} className="du-panel grid gap-4 p-6 md:p-8">
             <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Nom du visiteur' : 'Visitor name'}</span><input name="name" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre nom' : 'Enter your name'} required /></label>
             <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Adresse email' : 'Email address'}</span><input name="email" className="du-input py-4" placeholder={lang === 'fr' ? 'Entrez votre email' : 'Enter your email'} type="email" /></label>
-            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Message a envoyer' : 'Message to send'}</span><textarea name="message" className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Ecrivez votre message' : 'Write your message'} required /></label>
+            <label className="du-field"><span className="du-label">{lang === 'fr' ? 'Message à envoyer' : 'Message to send'}</span><textarea name="message" className="du-input min-h-36 py-4" placeholder={lang === 'fr' ? 'Écrivez votre message' : 'Write your message'} required /></label>
             <button className="bg-univOrange px-5 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-univGreen" type="submit">
               {lang === 'fr' ? 'Envoyer sur WhatsApp' : 'Send on WhatsApp'}
             </button>

@@ -14,14 +14,14 @@ const Home = () => {
   const copy = {
     en: {
       title: 'Dunamis, The Entrepreneurial University',
-      lead: 'A professional university for students who want recognized training, company experience, international mobility, and the confidence to create value.',
+      lead: 'A professional university for students who want recognized training, company expérience, international mobility, and the confidence to create value.',
       slides: [
         {
           image: heroImages.university,
           position: heroImagePositions.university,
           kicker: 'Dunamis University',
           title: 'Dunamis, The Entrepreneurial University',
-          lead: 'A professional university for recognized training, company experience, international mobility, and the confidence to create value.',
+          lead: 'A professional university for recognized training, company expérience, international mobility, and the confidence to create value.',
           primary: 'Apply Online',
           primaryPath: '/admission/apply',
           secondary: 'Explore Programs',
@@ -32,7 +32,7 @@ const Home = () => {
           position: heroImagePositions.apprenticeship,
           kicker: 'Work-study model',
           title: '3 days in class, 3 days in a company',
-          lead: 'Dunamis connects lessons with real professional practice: students spend part of the week in class, then apply what they learn inside a company, building confidence, discipline, and practical work experience before graduation.',
+          lead: 'Dunamis connects lessons with real professional practice: students spend part of the week in class, then apply what they learn inside a company, building confidence, discipline, and practical work expérience before graduation.',
           primary: 'See Apprenticeship',
           primaryPath: '/apprenticeship',
           secondary: 'Contact Admissions',
@@ -63,20 +63,20 @@ const Home = () => {
       ],
       reasons: [
         ['Work-study culture', 'A clear 3 days in class / 3 days in a company model that connects theory to responsibility.'],
-        ['Career support', 'CV coaching, company matching, professional events, and apprenticeship preparation.'],
+        ['Career support', 'CV coaching, company matching, professional events, and apprenticeship préparation.'],
         ['International routes', 'Canada, Germany, student mobility, and partnerships for students with global ambition.'],
       ],
     },
     fr: {
-      title: "Dunamis, l'Universite Entrepreneuriale",
-      lead: 'Une universite professionnelle pour les etudiants qui veulent une formation reconnue, une experience entreprise, une mobilite internationale et la confiance pour creer de la valeur.',
+      title: "Dunamis, l'Université Entrepreneuriale",
+      lead: 'Une université professionnelle pour les étudiants qui veulent une formation reconnue, une expérience entreprise, une mobilite internationale et la confiance pour creer de la valeur.',
       slides: [
         {
           image: heroImages.university,
           position: heroImagePositions.university,
           kicker: 'Dunamis University',
-          title: "Dunamis, l'Universite Entrepreneuriale",
-          lead: 'Une universite professionnelle pour une formation reconnue, une experience en entreprise, la mobilite internationale et la creation de valeur.',
+          title: "Dunamis, l'Université Entrepreneuriale",
+          lead: 'Une université professionnelle pour une formation reconnue, une expérience en entreprise, la mobilite internationale et la création de valeur.',
           primary: 'Postuler en ligne',
           primaryPath: '/admission/apply',
           secondary: 'Voir les formations',
@@ -87,7 +87,7 @@ const Home = () => {
           position: heroImagePositions.apprenticeship,
           kicker: 'Alternance',
           title: '3 jours en cours, 3 jours en entreprise',
-          lead: 'Dunamis relie les cours a la pratique: les etudiants apprennent en classe puis appliquent en entreprise pour developper confiance, discipline et experience professionnelle avant le diplome.',
+          lead: 'Dunamis relie les cours ? la pratique: les étudiants apprennent en classe puis appliquent en entreprise pour developper confiance, discipline et expérience professionnelle avant le diplôme.',
           primary: 'Voir l alternance',
           primaryPath: '/apprenticeship',
           secondary: 'Contacter les admissions',
@@ -98,8 +98,8 @@ const Home = () => {
           position: heroImagePositions.training,
           kicker: 'Pourquoi nous choisir',
           title: 'Bourse, laptop, salles modernes, labo et Wi-Fi',
-          lead: 'Dunamis offre un cadre pratique avec bourse, offre laptop pour inscriptions eligibles, cours du jour et du soir, salles multimedia, laboratoire biomedical, Wi-Fi et enseignants orientes vers la reussite professionnelle.',
-          primary: 'Conditions d admission',
+          lead: 'Dunamis offre un cadre pratique avec bourse, offre laptop pour inscriptions eligibles, cours du jour et du soir, salles multimedia, laboratoire biomedical, Wi-Fi et enseignants orientes vers la réussite professionnelle.',
+          primary: "Conditions d'admission",
           primaryPath: '/admission/requirements',
           secondary: 'Postuler',
           secondaryPath: '/admission/apply',
@@ -109,17 +109,17 @@ const Home = () => {
       session: "Prendre un rendez-vous d'information ou d'admission",
       why: 'Pourquoi Choisir Dunamis',
       programs: 'Trouvez Votre Formation',
-      news: 'Actualites & Evenements',
+      news: 'Actualités & événements',
       stats: [
-        ['3', 'Facultes'],
+        ['3', 'Facultés'],
         ['3/3', 'Rythme cours / entreprise'],
         ['EN + FR', 'Parcours bilingues'],
         ['100%', 'Ambition professionnelle'],
       ],
       reasons: [
-        ['Culture alternance', 'Un modele clair de 3 jours en cours / 3 jours en entreprise pour relier theorie et responsabilite.'],
-        ['Accompagnement carriere', 'Coaching CV, mise en relation entreprise, evenements professionnels et preparation alternance.'],
-        ['Parcours internationaux', 'Canada, Allemagne, mobilite et partenariats pour les etudiants ambitieux a l international.'],
+        ['Culture alternance', 'Un modele clair de 3 jours en cours / 3 jours en entreprise pour relier théorie et responsabilité.'],
+        ['Accompagnement carriere', 'Coaching CV, mise en relation entreprise, événements professionnels et préparation alternance.'],
+        ['Parcours internationaux', "Canada, Allemagne, mobilité et partenariats pour les étudiants ambitieux à l'international."],
       ],
     },
   }[lang];
@@ -223,7 +223,7 @@ const Home = () => {
             <h2 className="mt-4 text-4xl font-black tracking-tight">{lang === 'fr' ? 'Le rythme 3/3 qui professionnalise vraiment' : 'The 3/3 rhythm that makes training professional'}</h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-300">
               {lang === 'fr'
-                ? 'L alternance n est pas un detail dans le projet Dunamis: elle structure la semaine, les competences et l insertion.'
+                ? 'L alternance n est pas un detail dans le projet Dunamis: elle structure la semaine, les compétences et l insertion.'
                 : 'Apprenticeship is not a side feature at Dunamis: it shapes the week, the skills, and the path to employment.'}
             </p>
           </div>

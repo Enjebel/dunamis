@@ -25,9 +25,9 @@ const Training = () => {
     fr: {
       eyebrow: 'Formations',
       title: selectedCycle ? selectedCycle.fr.title : 'Choisissez votre parcours professionnel',
-      intro: selectedCycle ? selectedCycle.fr.summary : 'Dunamis organise ses formations en BTS, Licence, Master et HND dans trois facultes.',
-      faculties: 'Facultes et specialisations',
-      cta: 'Explorer cette faculte',
+      intro: selectedCycle ? selectedCycle.fr.summary : 'Dunamis organise ses formations en BTS, Licence, Master et HND dans trois facultés.',
+      faculties: 'Facultés et spécialisations',
+      cta: 'Explorer cette faculté',
     },
   }[lang];
 

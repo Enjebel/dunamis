@@ -30,15 +30,15 @@ const resources = {
     translation: {
       nav: {
         home: 'Accueil',
-        university: "L'Universite",
+        university: "L'Université",
         training: 'Formations',
         admission: 'Admission',
         apprenticeship: 'Alternance',
         international: 'International',
-        studentLife: 'Vie Etudiante',
+        studentLife: 'Vie étudiante',
         research: 'Recherche',
         businesses: 'Entreprises',
-        news: 'Actualites',
+        news: 'Actualités',
         contact: 'Contact',
       },
       actions: {

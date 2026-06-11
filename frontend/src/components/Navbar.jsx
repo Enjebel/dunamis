@@ -47,7 +47,7 @@ const Navbar = () => {
               {desktopMenu ? <X size={17} /> : <Menu size={17} />} Menu
             </button>
             <div className="flex items-center gap-5 text-xs font-black uppercase tracking-widest">
-              <Link to="/news" className="text-slate-700 hover:text-univGreen">{lang === 'fr' ? 'Info continue' : 'News Now'}</Link>
+              <Link to="/news" className="text-slate-700 hover:text-univGreen">{lang === 'fr' ? 'Infos en continu' : 'News Now'}</Link>
               <LanguageSwitcher />
             </div>
           </div>
@@ -104,8 +104,8 @@ const Navbar = () => {
                 <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-slate-400">{lang === 'fr' ? 'Portails' : 'Portals'}</p>
                 <div className="grid gap-2">
                   <Link to="/login/staff" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Portail Administration' : 'Administration Portal'}</Link>
-                  <Link to="/login/student" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Portail Etudiant' : 'Student Portal'}</Link>
-                  <Link to="/library" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Bibliotheque en ligne' : 'Online Library'}</Link>
+                  <Link to="/login/student" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Portail étudiant' : 'Student Portal'}</Link>
+                  <Link to="/library" onClick={() => setDesktopMenu(false)} className="text-sm font-bold text-white hover:text-univOrange">{lang === 'fr' ? 'Bibliothèque en ligne' : 'Online Library'}</Link>
                 </div>
               </div>
             </div>
@@ -148,7 +148,7 @@ const Navbar = () => {
             <Link to="/admission/apply" onClick={() => setOpen(false)} className="bg-univOrange px-4 py-3 text-center text-xs font-black uppercase tracking-widest text-white">Apply Online</Link>
           </div>
           <div className="mb-5 flex items-center justify-between border-y border-slate-200 py-3">
-            <Link to="/news" onClick={() => setOpen(false)} className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen"><FileText size={14} /> {lang === 'fr' ? 'Info continue' : 'News Now'}</Link>
+            <Link to="/news" onClick={() => setOpen(false)} className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen"><FileText size={14} /> {lang === 'fr' ? 'Infos en continu' : 'News Now'}</Link>
             <LanguageSwitcher />
           </div>
           <div className="mb-5 grid gap-2 bg-univGray p-4">

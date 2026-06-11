@@ -18,8 +18,8 @@ const PublicNews = () => {
       empty: 'No published posts yet.',
     },
     fr: {
-      eyebrow: 'Actualites',
-      title: 'Actualites, activites, evenements & blog',
+      eyebrow: 'Actualités',
+      title: 'Actualités, activites, événements & blog',
       intro: 'Les publications de l administration de Dunamis apparaissent automatiquement ici.',
       published: 'Publie',
       empty: 'Aucune publication pour le moment.',
