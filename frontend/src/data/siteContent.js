@@ -277,10 +277,11 @@ export const pages = {
       sections: [
         { title: 'Admission Requirements', text: `• GCE A-Level / BACC Certificate: 01 clear photocopy of your diploma or official transcript.
 • 01 photocopy of your National Identity Card (CNI) and 01 photocopy of your Birth Certificate.
-• Office Supplies: 02 reams of printing paper for academic assignments and exams.
+• Office Supplies: 02 reams of Double A printing paper for academic assignments and exams.
 • 04 recent passport-size photos (4x4 format).
-• 01 dozen (12 rolls) of toilet paper rolls.
+• 01 dozen Sitta toilet paper rolls (12 rolls).
 • 10,000 FCFA for the mandatory on-campus medical check-up.
+• 10,000 FCFA for Student Union dues.
 • 40,000 FCFA to officially validate your admission.` },
         { title: 'Student Benefits', text: `• Work-Study Programme (Alternance): A unique learning model balancing academic theory and intensive corporate expérience.
 • Free Tablet-Computer: A complimentary tech device gifted to every single student upon official registration.
@@ -302,12 +303,13 @@ export const pages = {
       title: 'Demarrez votre candidature à Dunamis',
       intro: 'Preparez votre dossier et contactez les admissions pour le choix du programme, les bourses et l inscription.',
       sections: [
-        { title: 'Conditions d Admission', text: `• Certificat GCE A-Level / BACC: 01 photocopie claire de votre diplôme ou releve officiel.
+        { title: 'Conditions d’admission', text: `• Certificat GCE A-Level / BACC: 01 photocopie claire de votre diplôme ou releve officiel.
 • 01 photocopie de votre Carte Nationale d Identite (CNI) et 01 photocopie de votre acte de naissance.
-• Fournitures de bureau: 02 rames de papier pour les devoirs académiques et les examens.
+• Fournitures de bureau: 02 rames de papier Double A pour les devoirs académiques et les examens.
 • 04 photos passeport recentes format 4x4.
-• 01 douzaine (12 rouleaux) de papier hygienique.
+• 01 douzaine de papier hygiénique Sitta (12 rouleaux).
 • 10 000 FCFA pour la visite medicale obligatoire sur le campus.
+• 10 000 FCFA pour les frais d’association des étudiants.
 • 40 000 FCFA pour valider officiellement votre admission.` },
         { title: 'Avantages étudiants', text: `• Programme Travail-Etudes (Alternance): un modele unique qui equilibre la théorie académique et l expérience intensive en entreprise.
 • Tablette-ordinateur gratuite: un appareil technologique offert a chaque étudiant apres son inscription officielle.
@@ -562,7 +564,7 @@ export const navigation = [
     id: 'admission',
     path: '/admission',
     children: [
-      ['Admission Requirements', 'Conditions d Admission', '/admission/requirements'],
+      ['Admission Requirements', 'Conditions d’admission', '/admission/requirements'],
       ['Student Benefits', 'Avantages étudiants', '/admission/benefits'],
       ['Class Sessions', 'Sessions de Cours', '/admission/class-sessions'],
       ['Apply Online', 'Postuler en ligne', '/admission/apply'],
