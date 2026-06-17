@@ -2,15 +2,37 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import InstitutionalInfoBlock from '../components/InstitutionalInfoBlock';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { contactInfo } from '../data/siteContent';
 
 const Contact = () => {
   const [data, setData] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const visitorName = formData.get('name') || '';
+    const visitorEmail = formData.get('email') || '';
+    const message = formData.get('message') || '';
+    const subject = encodeURIComponent(`Dunamis website inquiry from ${visitorName || 'visitor'}`);
+    const body = encodeURIComponent([
+      `Name: ${visitorName}`,
+      `Email: ${visitorEmail}`,
+      '',
+      message,
+    ].join('\n'));
+
+    window.location.href = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
+  };
 
   useEffect(() => {
     axios.get('/api/content/contact').then(res => setData(res.data)).catch(() => setData({
       title: "Contact Us",
       institutionalInfo: "Get in touch with us for more information.",
-      details: {}
+      details: {
+        phone: contactInfo.phone,
+        email: contactInfo.email,
+        address: 'University Campus, Dunamis Road'
+      }
     }));
   }, []);
 
@@ -47,18 +69,18 @@ const Contact = () => {
             </div>
             <div>
               <h3 className="text-lg font-black text-blue-900 uppercase tracking-tight">Email Us</h3>
-              <p className="text-slate-600 font-medium">{data.details?.email}</p>
+              <a href={`mailto:${contactInfo.email}`} className="text-slate-600 font-medium hover:text-univGreen">{contactInfo.email}</a>
             </div>
           </div>
         </div>
 
         <div className="bg-white p-8 shadow-xl border border-slate-100 md:p-12">
           <h2 className="text-3xl font-black mb-8 uppercase tracking-tighter text-slate-950">Send a Message</h2>
-          <form className="space-y-6">
-            <label className="du-field"><span className="du-label">Visitor name</span><input type="text" placeholder="Enter your full name" className="du-input w-full py-4" /></label>
-            <label className="du-field"><span className="du-label">Visitor email address</span><input type="email" placeholder="Enter your email address" className="du-input w-full py-4" /></label>
-            <label className="du-field"><span className="du-label">Message or inquiry details</span><textarea placeholder="Tell us how we can help" rows="4" className="du-input w-full py-4"></textarea></label>
-            <button className="w-full bg-univGreen text-white font-black uppercase tracking-widest py-4 hover:bg-univOrange transition-colors">Send Inquiry</button>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <label className="du-field"><span className="du-label">Visitor name</span><input name="name" type="text" placeholder="Enter your full name" className="du-input w-full py-4" required /></label>
+            <label className="du-field"><span className="du-label">Visitor email address</span><input name="email" type="email" placeholder="Enter your email address" className="du-input w-full py-4" required /></label>
+            <label className="du-field"><span className="du-label">Message or inquiry details</span><textarea name="message" placeholder="Tell us how we can help" rows="4" className="du-input w-full py-4" required></textarea></label>
+            <button type="submit" className="w-full bg-univGreen text-white font-black uppercase tracking-widest py-4 hover:bg-univOrange transition-colors">Send Inquiry</button>
           </form>
         </div>
       </div>

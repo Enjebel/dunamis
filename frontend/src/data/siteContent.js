@@ -65,10 +65,10 @@ export const facebookVideos = [
 ];
 
 export const contactInfo = {
-  phone: '+237 6 58 68 25 33',
-  phoneHref: 'tel:+237658682533',
-  whatsapp: '+237 6 58 68 25 33',
-  whatsappHref: 'https://wa.me/237658682533',
+  phone: '673500712',
+  phoneHref: 'tel:673500712',
+  whatsapp: '673500712',
+  whatsappHref: 'https://wa.me/237673500712',
   email: 'dunamisresta@gmail.com',
 };
 

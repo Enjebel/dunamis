@@ -43,7 +43,7 @@ const RectorMessage = () => {
           <p className="text-sm font-black uppercase tracking-[0.2em] text-univOrange">{copy.signature}</p>
         </div>
         <div className="overflow-hidden border border-slate-200 bg-univGray">
-          <img src="/images/Screenshot 2026-05-16 130959.png" alt="Dunamis leadership" className="h-full w-full object-cover" />
+          <img src="/images/director.jpeg" alt="Director of Dunamis" className="h-full min-h-[420px] w-full object-cover" style={{ objectPosition: 'center top' }} />
         </div>
       </section>
     </div>
