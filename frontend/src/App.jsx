@@ -19,6 +19,7 @@ import AcademicToolsPortal from './pages/AcademicToolsPortal';
 import LectureValidationPortal from './pages/LectureValidationPortal';
 import TimetableAdminPortal from './pages/TimetableAdminPortal';
 import PublicNews from './pages/PublicNews';
+import Gallery from './pages/Gallery';
 
 const universityFocus = {
   'mission-vision': 1,
@@ -86,6 +87,7 @@ function App() {
             <Route path="/research" element={<SectionPage pageKey="research" />} />
             <Route path="/businesses" element={<SectionPage pageKey="businesses" />} />
             <Route path="/news" element={<PublicNews />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<SectionPage pageKey="contact" />} />
             <Route path="/admin" element={<RequireAuth roles={['super_admin', 'academic_admin']}><AdminPortal /></RequireAuth>} />
             <Route path="/admin/academic-tools" element={<RequireAuth roles={['super_admin', 'academic_admin']}><AcademicToolsPortal /></RequireAuth>} />

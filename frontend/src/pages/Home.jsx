@@ -7,6 +7,18 @@ import { faculties, heroImagePositions, heroImages, localImages, pages, training
 
 const getLang = (language) => (language?.startsWith('fr') ? 'fr' : 'en');
 
+const studentLifeGallery = [
+  '/pictures/WhatsApp Image 2026-06-07 at 4.17.09 PM.jpeg',
+  '/pictures/WhatsApp Image 2026-06-07 at 4.17.10 PM (1).jpeg',
+  '/pictures/WhatsApp Image 2026-06-07 at 4.17.10 PM.jpeg',
+  '/pictures/WhatsApp Image 2026-06-07 at 4.17.11 PM.jpeg',
+  '/pictures/WhatsApp Image 2026-06-07 at 5.59.29 AM.jpeg',
+  '/pictures/WhatsApp Image 2026-06-07 at 5.59.30 AM.jpeg',
+  '/student life/WhatsApp Image 2026-06-07 at 4.17.10 PM (1).jpeg',
+  '/student life/WhatsApp Image 2026-06-07 at 4.17.10 PM.jpeg',
+  '/student life/WhatsApp Image 2026-06-07 at 4.17.11 PM.jpeg',
+];
+
 const Home = () => {
   const { t, i18n } = useTranslation();
   const lang = getLang(i18n.language);
@@ -264,6 +276,26 @@ const Home = () => {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="mt-14 overflow-hidden border-y border-slate-200 py-8">
+            <div className="mb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+              <div>
+                <p className="du-kicker">{lang === 'fr' ? 'Vie etudiante' : 'Student Life'}</p>
+                <h3 className="mt-2 text-3xl font-black tracking-tight text-slate-950">
+                  {lang === 'fr' ? 'Galerie du campus' : 'Campus Gallery'}
+                </h3>
+              </div>
+              <Link to="/student-life" className="text-sm font-black uppercase tracking-widest text-univGreen hover:text-univOrange">{t('actions.viewPage')}</Link>
+            </div>
+            <div className="du-gallery-mask">
+              <div className="du-gallery-track flex gap-5">
+                {[...studentLifeGallery, ...studentLifeGallery].map((image, index) => (
+                  <div key={`${image}-${index}`} className="h-72 w-[78vw] shrink-0 overflow-hidden bg-white shadow-sm sm:w-[420px]">
+                    <img src={image} alt={lang === 'fr' ? 'Vie etudiante Dunamis' : 'Dunamis student life'} className="h-full w-full object-cover" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

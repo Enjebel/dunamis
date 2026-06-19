@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, FileText, Mail, Menu, MessageCircle, Phone, X } from 'lucide-react';
+import { ChevronDown, FileText, ImageIcon, Mail, Menu, MessageCircle, Phone, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { contactInfo, navigation } from '../data/siteContent';
 
@@ -23,6 +23,7 @@ const Navbar = () => {
           <div className="flex items-center gap-6 text-slate-300">
             <a href={contactInfo.phoneHref} className="flex items-center gap-2 hover:text-white"><Phone size={13} /> {contactInfo.phone}</a>
             <a href={contactInfo.whatsappHref} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><MessageCircle size={13} /> WhatsApp</a>
+            <Link to="/gallery" className="flex items-center gap-2 hover:text-white"><ImageIcon size={13} /> {lang === 'fr' ? 'Galerie' : 'Gallery'}</Link>
           </div>
           <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 text-slate-300 hover:text-white"><Mail size={13} /> {contactInfo.email}</a>
         </div>
@@ -149,6 +150,7 @@ const Navbar = () => {
           </div>
           <div className="mb-5 flex items-center justify-between border-y border-slate-200 py-3">
             <Link to="/news" onClick={() => setOpen(false)} className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen"><FileText size={14} /> {lang === 'fr' ? 'Infos en continu' : 'News Now'}</Link>
+            <Link to="/gallery" onClick={() => setOpen(false)} className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500 hover:text-univGreen"><ImageIcon size={14} /> {lang === 'fr' ? 'Galerie' : 'Gallery'}</Link>
             <LanguageSwitcher />
           </div>
           <div className="mb-5 grid gap-2 bg-univGray p-4">
